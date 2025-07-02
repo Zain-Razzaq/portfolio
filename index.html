@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zain Razzaq - Full Stack Developer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-text">Z.R</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon" id="themeIcon"></i>
+            <span id="themeText">Dark</span>
+          </button>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              <span class="wave">👋</span> Hi, I'm
+              <span class="highlight">Zain Razzaq</span>
+            </h1>
+            <p class="hero-subtitle">
+              Full Stack Developer and AI Enthusiast with 3+ years of experience
+              in modern web development and AI solutions.
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-primary">View My Work</a>
+              <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="floating-card">
+              <div class="code-snippet">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="code-content">
+                  <span class="code-line"
+                    ><span class="keyword">const</span>
+                    <span class="variable">developer</span> = {</span
+                  >
+                  <span class="code-line">
+                    <span class="property">name</span>:
+                    <span class="string">'Zain Razzaq'</span>,</span
+                  >
+                  <span class="code-line">
+                    <span class="property">experience</span>:
+                    <span class="string">'3+ years'</span>,</span
+                  >
+                  <span class="code-line">
+                    <span class="property">passion</span>:
+                    <span class="string">'AI & Web Dev'</span></span
+                  >
+                  <span class="code-line">};</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              I'm a passionate Full Stack Developer with a strong background in
+              AI and machine learning. I hold a BS in Computer Science from
+              Information Technology University of Punjab, Lahore, where I
+              developed a solid foundation in software engineering principles.
+            </p>
+            <p>
+              My journey spans from web development to cutting-edge AI research,
+              having worked on projects ranging from crypto exchange platforms
+              to AI-powered educational tools. I specialize in creating scalable
+              web applications and integrating AI solutions to solve real-world
+              problems.
+            </p>
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <i class="fas fa-laptop-code"></i>
+                <span>3+ Years Experience</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-brain"></i>
+                <span>AI Integration Expert</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-cubes"></i>
+                <span>Full Stack Developer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3><i class="fas fa-robot"></i> AI & LLM Integration</h3>
+            <div class="skill-items">
+              <span class="skill-item">ChatGPT & GPT-4 APIs</span>
+              <span class="skill-item">Pytorch</span>
+              <span class="skill-item">LangChain $ Camel AI</span>
+              <span class="skill-item">Google Gemini</span>
+              <span class="skill-item">Hugging Face Models</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><i class="fas fa-code"></i> Frontend Development</h3>
+            <div class="skill-items">
+              <span class="skill-item">React.js</span>
+              <span class="skill-item">Next.js</span>
+              <span class="skill-item">TypeScript</span>
+              <span class="skill-item">Tailwind CSS</span>
+              <span class="skill-item">Material UI</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><i class="fas fa-server"></i> Backend Development</h3>
+            <div class="skill-items">
+              <span class="skill-item">Node.js</span>
+              <span class="skill-item">Express</span>
+              <span class="skill-item">REST APIs</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><i class="fas fa-database"></i> Databases</h3>
+            <div class="skill-items">
+              <span class="skill-item">MySQL</span>
+              <span class="skill-item">PostgreSQL</span>
+              <span class="skill-item">MongoDB</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><i class="fas fa-cloud"></i> Deployment</h3>
+            <div class="skill-items">
+              <span class="skill-item">Vercel</span>
+              <span class="skill-item">Netlify</span>
+              <span class="skill-item">Docker</span>
+              <span class="skill-item">Cloud Platforms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Researcher - CAAISC Lab, ITU</h3>
+              <p>
+                Conducted research in collaboration with Zayed University and
+                Qatar University, developing a multi-agent system using Camel-AI
+                to analyze Systematic Literature Review papers with 90%
+                accuracy.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Web Developer - Indexx.ai</h3>
+              <p>
+                Developed features for Index Exchange, a live crypto exchange
+                platform built with the MERN stack. Fixed critical bugs and
+                implemented new features to enhance functionality and user
+                experience.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Researcher - Intelligent Machines Lab, ITU</h3>
+              <p>
+                Worked on a collaborative research project with ETRI, South
+                Korea, implementing state-of-the-art techniques on real-world
+                and synthetic datasets, enhancing 4D model quality and
+                co-authoring a paper for CVPR 2025.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Web Development Intern - Arbisoft</h3>
+              <p>
+                Gained hands-on experience in front-end and back-end
+                development, working on multiple MERN stack projects and
+                learning professional web development workflows.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-gallery">
+              <div class="gallery-container">
+                <div class="gallery-slide">
+                  <div class="gallery-placeholder">
+                    <i class="fas fa-cube"></i>
+                    <span>3D Gaussian Modeling</span>
+                  </div>
+                </div>
+                <div class="gallery-slide">
+                  <div class="gallery-placeholder">
+                    <i class="fas fa-brain"></i>
+                    <span>Neural Network Training</span>
+                  </div>
+                </div>
+                <div class="gallery-slide">
+                  <div class="gallery-placeholder">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Results Visualization</span>
+                  </div>
+                </div>
+              </div>
+              <button class="gallery-nav prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="gallery-nav next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="gallery-indicators">
+                <div class="gallery-indicator active"></div>
+                <div class="gallery-indicator"></div>
+                <div class="gallery-indicator"></div>
+              </div>
+            </div>
+            <div class="project-header">
+              <h3>Mesh Extraction from Dynamic Gaussian Model</h3>
+              <div class="project-tags">
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">4D Gaussian</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>
+                A Computer Vision and ML-based final year project focused on
+                generating 4D Gaussian models from 2D images of dynamic scenes.
+                Trained neural networks to predict deformations and construct 3D
+                meshes using Gaussian centers as vertices.
+              </p>
+              <div class="project-tech">
+                <span>Python</span>
+                <span>PyTorch</span>
+                <span>Computer Vision</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-gallery">
+              <div class="gallery-container">
+                <div class="gallery-slide">
+                  <div class="gallery-placeholder">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>Classroom Interface</span>
+                  </div>
+                </div>
+                <div class="gallery-slide">
+                  <div class="gallery-placeholder">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Auto-Grading</span>
+                  </div>
+                </div>
+                <div class="gallery-slide">
+                  <div class="gallery-placeholder">
+                    <i class="fas fa-pen-fancy"></i>
+                    <span>Handwriting Recognition</span>
+                  </div>
+                </div>
+                <div class="gallery-slide">
+                  <div class="gallery-placeholder">
+                    <i class="fas fa-language"></i>
+                    <span>Language Processing</span>
+                  </div>
+                </div>
+              </div>
+              <button class="gallery-nav prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="gallery-nav next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="gallery-indicators">
+                <div class="gallery-indicator active"></div>
+                <div class="gallery-indicator"></div>
+                <div class="gallery-indicator"></div>
+                <div class="gallery-indicator"></div>
+              </div>
+            </div>
+            <div class="project-header">
+              <h3>ClassManager - AI Powered Classroom</h3>
+              <div class="project-tags">
+                <span class="tag">AI Integration</span>
+                <span class="tag">Full Stack</span>
+                <span class="tag">LLM</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>
+                Developed a comprehensive classroom web platform with role-based
+                access for teachers and students. Features AI-powered
+                auto-grading using Google Gemini, handwritten text recognition,
+                and LLM integration for language submissions.
+              </p>
+              <div class="project-tech">
+                <span>React</span>
+                <span>Django</span>
+                <span>Google Gemini</span>
+                <span>OCR</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-content">
+          <p>
+            I'm always open to discussing new opportunities, collaborations, or
+            just having a chat about technology and AI!
+          </p>
+          <div class="contact-links">
+            <a href="mailto:zainrazzaq2003@gmail.com" class="contact-link">
+              <i class="fas fa-envelope"></i>
+              <span>zainrazzaq003@gmail.com</span>
+            </a>
+            <a
+              href="https://github.com/Zain-Razzaq"
+              target="_blank"
+              class="contact-link"
+            >
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/zain-razzaq-96a084228/"
+              target="_blank"
+              class="contact-link"
+            >
+              <i class="fab fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="tel:+92-322-8687394" class="contact-link">
+              <i class="fas fa-phone"></i>
+              <span>+92-322-8687394</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 Zain Razzaq. Built with ❤️</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
