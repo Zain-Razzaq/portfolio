@@ -22,6 +22,7 @@
   --border-color: #e5e7eb;
   --card-bg: #ffffff;
   --navbar-bg: rgba(255, 255, 255, 0.95);
+  --navbar-height: 70px;
   --gradient-1: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
   --gradient-2: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
   --gradient-3: linear-gradient(135deg, #10b981 0%, #059669 100%);
@@ -49,6 +50,7 @@
   --border-color: #4b5563;
   --card-bg: #1f2937;
   --navbar-bg: rgba(31, 41, 55, 0.95);
+  --navbar-height: 70px;
   --gradient-1: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
   --gradient-2: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
   --gradient-3: linear-gradient(135deg, #34d399 0%, #059669 100%);
@@ -101,7 +103,7 @@ button,
   width: 100%;
   background: var(--navbar-bg);
   backdrop-filter: blur(10px);
-  z-index: 1000;
+  z-index: 1002;
   padding: 1rem 0;
   transition: all 0.3s ease;
   border-bottom: 1px solid var(--border-color);
@@ -169,6 +171,19 @@ button,
   display: none;
   flex-direction: column;
   cursor: pointer;
+  z-index: 1003;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 .bar {
@@ -1119,21 +1134,27 @@ section {
 
   .nav-menu {
     position: fixed;
-    left: -100%;
-    top: 70px;
+    left: 0;
+    top: var(--navbar-height);
     flex-direction: column;
     background-color: var(--navbar-bg);
     backdrop-filter: blur(10px);
     width: 100%;
     text-align: center;
-    transition: 0.3s;
+    /* transition: all 0.3s ease; */
     box-shadow: var(--shadow);
     padding: 2rem 0;
-    border: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 999;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
   }
 
   .nav-menu.active {
-    left: 0;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
   }
 
   .theme-toggle {
