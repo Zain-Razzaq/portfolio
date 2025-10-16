@@ -1,27 +1,18 @@
-// DOM Elements
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
-const navLinks = document.querySelectorAll(".nav-link");
-const themeToggle = document.getElementById("themeToggle");
-const themeIcon = document.getElementById("themeIcon");
-const themeText = document.getElementById("themeText");
-
-// Mobile Navigation Toggle
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
-});
-
-// Close mobile menu when clicking on a link
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-  });
-});
+// DOM Elements - moved inside functions to ensure DOM is loaded
 
 // Theme Toggle Functionality
 function initThemeToggle() {
+  const themeToggle = document.getElementById("themeToggle");
+  const themeIcon = document.getElementById("themeIcon");
+  const themeText = document.getElementById("themeText");
+
+  console.log("Theme toggle elements:", { themeToggle, themeIcon, themeText });
+
+  if (!themeToggle || !themeIcon || !themeText) {
+    console.error("Theme toggle elements not found!");
+    return;
+  }
+
   // Check for saved theme preference or default to 'dark'
   const currentTheme = localStorage.getItem("theme") || "dark";
   document.documentElement.setAttribute("data-theme", currentTheme);
@@ -30,6 +21,8 @@ function initThemeToggle() {
   themeToggle.addEventListener("click", () => {
     const currentTheme = document.documentElement.getAttribute("data-theme");
     const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+    console.log("Switching theme from", currentTheme, "to", newTheme);
 
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
@@ -42,15 +35,15 @@ function initThemeToggle() {
       document.body.style.transition = "";
     }, 300);
   });
-}
 
-function updateThemeToggleButton(theme) {
-  if (theme === "dark") {
-    themeIcon.className = "fas fa-sun";
-    themeText.textContent = "Light";
-  } else {
-    themeIcon.className = "fas fa-moon";
-    themeText.textContent = "Dark";
+  function updateThemeToggleButton(theme) {
+    if (theme === "dark") {
+      themeIcon.className = "fas fa-sun";
+      themeText.textContent = "Light";
+    } else {
+      themeIcon.className = "fas fa-moon";
+      themeText.textContent = "Dark";
+    }
   }
 }
 
@@ -217,23 +210,27 @@ function initProjectGalleries() {
 }
 
 // Smooth scrolling for navigation links
-navLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const targetId = link.getAttribute("href");
-    const targetSection = document.querySelector(targetId);
+function initSmoothScrolling() {
+  const navLinks = document.querySelectorAll(".nav-link");
 
-    if (targetSection) {
-      const navbarHeight = document.querySelector(".navbar").offsetHeight;
-      const targetPosition = targetSection.offsetTop - navbarHeight;
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
 
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
-      });
-    }
+      if (targetSection) {
+        const navbarHeight = document.querySelector(".navbar").offsetHeight;
+        const targetPosition = targetSection.offsetTop - navbarHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+      }
+    });
   });
-});
+}
 
 // Navbar background on scroll - removed since we're using CSS variables
 
@@ -409,6 +406,227 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Email Form Functionality
+function initEmailForm() {
+  const contactForm = document.getElementById("contactForm");
+  const emailInput = document.getElementById("emailInput");
+
+  if (!contactForm || !emailInput) return;
+
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = emailInput.value.trim();
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+
+    // Validate email
+    if (!email || !isValidEmail(email)) {
+      showMessage("Please enter a valid email address.", "error");
+      return;
+    }
+
+    // Show loading state
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    try {
+      // For now, we'll simulate sending the email
+      // In a real implementation, you would send this to your backend
+      await simulateEmailSubmission(email);
+
+      showMessage("Thank you! I'll get back to you soon.", "success");
+      emailInput.value = "";
+    } catch (error) {
+      showMessage("Something went wrong. Please try again.", "error");
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+}
+
+// Email validation
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Simulate email submission (replace with real backend call)
+async function simulateEmailSubmission(email) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // Log the email to console (for development)
+      console.log("Email submitted:", email);
+
+      // In a real implementation, you would:
+      // 1. Send email to your backend API
+      // 2. Store in database
+      // 3. Send notification email to yourself
+      // 4. Send confirmation email to user
+
+      // For now, we'll just resolve successfully
+      resolve();
+    }, 1000);
+  });
+}
+
+// Show message to user
+function showMessage(message, type) {
+  // Remove existing message
+  const existingMessage = document.querySelector(".form-message");
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+
+  // Create new message
+  const messageEl = document.createElement("div");
+  messageEl.className = `form-message form-message-${type}`;
+
+  if (type === "success") {
+    // Enhanced success message with icon and animation
+    messageEl.innerHTML = `
+      <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+        <div style="
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #10b981, #059669);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          animation: checkmarkPulse 0.6s ease-out;
+        ">
+          <i class="fas fa-check" style="color: white; font-size: 12px;"></i>
+        </div>
+        <span style="font-weight: 500;">${message}</span>
+      </div>
+    `;
+
+    // Enhanced success styling
+    messageEl.style.cssText = `
+      margin-top: 1rem;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.1));
+      color: #10b981;
+      border: 2px solid rgba(16, 185, 129, 0.3);
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+      transform: translateY(10px);
+      opacity: 0;
+      animation: slideInSuccess 0.5s ease-out forwards;
+      position: relative;
+      overflow: hidden;
+    `;
+
+    // Add subtle background animation
+    const shimmer = document.createElement("div");
+    shimmer.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: shimmer 2s ease-in-out;
+    `;
+    messageEl.appendChild(shimmer);
+  } else {
+    // Error message styling
+    messageEl.innerHTML = `
+      <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+        <i class="fas fa-exclamation-triangle" style="color: #ef4444; font-size: 16px;"></i>
+        <span>${message}</span>
+      </div>
+    `;
+
+    messageEl.style.cssText = `
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      text-align: center;
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      transform: translateY(10px);
+      opacity: 0;
+      animation: slideInError 0.3s ease-out forwards;
+    `;
+  }
+
+  // Add CSS animations
+  if (!document.querySelector("#message-animations")) {
+    const style = document.createElement("style");
+    style.id = "message-animations";
+    style.textContent = `
+      @keyframes slideInSuccess {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      
+      @keyframes slideInError {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      
+      @keyframes checkmarkPulse {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      
+      @keyframes slideOut {
+        to {
+          transform: translateY(-10px);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Insert after form
+  const contactForm = document.getElementById("contactForm");
+  contactForm.parentNode.insertBefore(messageEl, contactForm.nextSibling);
+
+  // Auto remove after 6 seconds (longer for success)
+  setTimeout(
+    () => {
+      if (messageEl.parentNode) {
+        messageEl.style.animation = "slideOut 0.3s ease-in forwards";
+        setTimeout(() => {
+          if (messageEl.parentNode) {
+            messageEl.remove();
+          }
+        }, 300);
+      }
+    },
+    type === "success" ? 6000 : 5000
+  );
+}
+
 // Contact form animation (if you add a form later)
 function initContactForm() {
   const contactLinks = document.querySelectorAll(".contact-link");
@@ -536,6 +754,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initParticles();
   initSkillHover();
   initContactForm();
+  initEmailForm(); // Add email form initialization
+  initSmoothScrolling(); // Add smooth scrolling
 
   // Add cursor trail on desktop only
   if (window.innerWidth > 768) {
