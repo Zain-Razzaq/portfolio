@@ -871,28 +871,63 @@ function initProjectsCarousel() {
 
   // Touch/swipe support for mobile
   let startX = 0;
+  let startY = 0;
   let endX = 0;
+  let endY = 0;
+  let isHorizontalSwipe = false;
 
   carousel.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    isHorizontalSwipe = false;
   });
 
   carousel.addEventListener("touchmove", (e) => {
-    e.preventDefault();
+    if (!startX || !startY) return;
+    
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+    const deltaX = Math.abs(currentX - startX);
+    const deltaY = Math.abs(currentY - startY);
+    
+    // Determine if this is a horizontal or vertical swipe
+    if (!isHorizontalSwipe) {
+      if (deltaX > deltaY && deltaX > 10) {
+        isHorizontalSwipe = true;
+        e.preventDefault(); // Only prevent default for horizontal swipes
+      } else if (deltaY > deltaX && deltaY > 10) {
+        isHorizontalSwipe = false;
+        // Allow vertical scrolling by not preventing default
+      }
+    } else {
+      e.preventDefault(); // Continue preventing default for horizontal swipes
+    }
   });
 
   carousel.addEventListener("touchend", (e) => {
+    if (!startX || !startY) return;
+    
     endX = e.changedTouches[0].clientX;
+    endY = e.changedTouches[0].clientY;
     const deltaX = startX - endX;
+    const deltaY = startY - endY;
     const threshold = 50;
 
-    if (Math.abs(deltaX) > threshold) {
+    // Only handle horizontal swipes
+    if (isHorizontalSwipe && Math.abs(deltaX) > threshold && Math.abs(deltaX) > Math.abs(deltaY)) {
       if (deltaX > 0) {
         nextSlide();
       } else {
         prevSlide();
       }
     }
+    
+    // Reset values
+    startX = 0;
+    startY = 0;
+    endX = 0;
+    endY = 0;
+    isHorizontalSwipe = false;
   });
 
   // Handle window resize
@@ -988,28 +1023,63 @@ function initTestimonialsCarousel() {
 
   // Touch/swipe support for mobile
   let startX = 0;
+  let startY = 0;
   let endX = 0;
+  let endY = 0;
+  let isHorizontalSwipe = false;
 
   carousel.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    isHorizontalSwipe = false;
   });
 
   carousel.addEventListener("touchmove", (e) => {
-    e.preventDefault();
+    if (!startX || !startY) return;
+    
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+    const deltaX = Math.abs(currentX - startX);
+    const deltaY = Math.abs(currentY - startY);
+    
+    // Determine if this is a horizontal or vertical swipe
+    if (!isHorizontalSwipe) {
+      if (deltaX > deltaY && deltaX > 10) {
+        isHorizontalSwipe = true;
+        e.preventDefault(); // Only prevent default for horizontal swipes
+      } else if (deltaY > deltaX && deltaY > 10) {
+        isHorizontalSwipe = false;
+        // Allow vertical scrolling by not preventing default
+      }
+    } else {
+      e.preventDefault(); // Continue preventing default for horizontal swipes
+    }
   });
 
   carousel.addEventListener("touchend", (e) => {
+    if (!startX || !startY) return;
+    
     endX = e.changedTouches[0].clientX;
+    endY = e.changedTouches[0].clientY;
     const deltaX = startX - endX;
+    const deltaY = startY - endY;
     const threshold = 50;
 
-    if (Math.abs(deltaX) > threshold) {
+    // Only handle horizontal swipes
+    if (isHorizontalSwipe && Math.abs(deltaX) > threshold && Math.abs(deltaX) > Math.abs(deltaY)) {
       if (deltaX > 0) {
         nextSlide();
       } else {
         prevSlide();
       }
     }
+    
+    // Reset values
+    startX = 0;
+    startY = 0;
+    endX = 0;
+    endY = 0;
+    isHorizontalSwipe = false;
   });
 
   // Handle window resize
