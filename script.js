@@ -510,7 +510,7 @@ async function sendConfirmationEmail(email, message) {
     emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_CONFIRMATION, {
       from_name: "Zain Razzaq",
       user_email: email,
-      message: `Hi there!\n\nThank you for reaching out to me through my portfolio website.${message ? `\n\nI've received your message:\n\n"${message}"` : '\n\nI\'ve received your contact request.'}\n\nI'll review your request and get back to you within 24 hours. I'm excited to learn more about your project and how I can help you build something amazing!\n\nBest regards,\nZain Razzaq\nAI Expert & Full Stack Developer`,
+      message: `Hi there!\n\nThank you for reaching out to me.${message ? `\nI've received your message:\n"${message}"` : '\n\nI\'ve received your contact request.'}\n\nI'll review your request and get back to you within 24 hours. I'm excited to learn more about your project and how I can help you build something amazing!\n\nBest regards,\nZain Razzaq\nAI Expert & Full Stack Developer`,
       email: email
     })
     .then((response) => {
@@ -913,6 +913,123 @@ function initProjectsCarousel() {
   updateCarousel();
 }
 
+// Testimonials Carousel Functionality
+function initTestimonialsCarousel() {
+  const carousel = document.getElementById("testimonialsCarousel");
+  const prevBtn = document.getElementById("prevTestimonial");
+  const nextBtn = document.getElementById("nextTestimonial");
+  const indicators = document.querySelectorAll("#testimonialIndicators .indicator");
+  
+  if (!carousel || !prevBtn || !nextBtn) return;
+
+  const testimonials = carousel.querySelectorAll(".testimonial-card");
+  const totalTestimonials = testimonials.length;
+  
+  // Function to get testimonials per slide based on screen size
+  function getTestimonialsPerSlide() {
+    if (window.innerWidth <= 1024) {
+      return 1; // Mobile and tablet: 1 testimonial at a time
+    }
+    return 3; // Desktop: 3 testimonials at a time
+  }
+  
+  let testimonialsPerSlide = getTestimonialsPerSlide();
+  let totalSlides = Math.ceil(totalTestimonials / testimonialsPerSlide);
+  let currentSlide = 0;
+
+  // Update carousel position
+  function updateCarousel() {
+    // On mobile, each slide is 100% width, on desktop it's 33.333% per testimonial
+    const translateX = window.innerWidth <= 1024 
+      ? -currentSlide * 100  // Mobile: 100% per slide
+      : -currentSlide * (100 / testimonialsPerSlide); // Desktop: calculated per testimonials
+    
+    carousel.style.transform = `translateX(${translateX}%)`;
+    
+    // Update indicators - show only the ones needed
+    indicators.forEach((indicator, index) => {
+      if (index < totalSlides) {
+        indicator.style.display = 'block';
+        indicator.classList.toggle("active", index === currentSlide);
+      } else {
+        indicator.style.display = 'none';
+      }
+    });
+  }
+
+  // Next slide
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  // Previous slide
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+
+  // Go to specific slide
+  function goToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    updateCarousel();
+  }
+
+  // Event listeners (only for mobile/tablet)
+  if (window.innerWidth <= 1024) {
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener("click", () => goToSlide(index));
+    });
+  }
+
+  // Touch/swipe support for mobile
+  let startX = 0;
+  let endX = 0;
+
+  carousel.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+  });
+
+  carousel.addEventListener("touchend", (e) => {
+    endX = e.changedTouches[0].clientX;
+    const deltaX = startX - endX;
+    const threshold = 50;
+
+    if (Math.abs(deltaX) > threshold) {
+      if (deltaX > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  });
+
+  // Handle window resize
+  function handleResize() {
+    const newTestimonialsPerSlide = getTestimonialsPerSlide();
+    if (newTestimonialsPerSlide !== testimonialsPerSlide) {
+      testimonialsPerSlide = newTestimonialsPerSlide;
+      totalSlides = Math.ceil(totalTestimonials / testimonialsPerSlide);
+      currentSlide = Math.min(currentSlide, totalSlides - 1);
+      updateCarousel();
+    }
+  }
+
+  // Add resize event listener
+  window.addEventListener('resize', handleResize);
+
+  // Initialize carousel
+  updateCarousel();
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   initLoading();
@@ -920,6 +1037,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initInteractiveCard();
   initProjectGalleries();
   initProjectsCarousel(); // Add projects carousel initialization
+  initTestimonialsCarousel(); // Add testimonials carousel initialization
   initParticles();
   initSkillHover();
   initContactForm();
