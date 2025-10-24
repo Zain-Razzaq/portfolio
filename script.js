@@ -880,7 +880,7 @@ function initProjectsCarousel() {
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
     isHorizontalSwipe = false;
-  });
+  }, { passive: true });
 
   carousel.addEventListener("touchmove", (e) => {
     if (!startX || !startY) return;
@@ -892,17 +892,18 @@ function initProjectsCarousel() {
     
     // Determine if this is a horizontal or vertical swipe
     if (!isHorizontalSwipe) {
-      if (deltaX > deltaY && deltaX > 10) {
+      if (deltaX > deltaY && deltaX > 15) {
         isHorizontalSwipe = true;
         e.preventDefault(); // Only prevent default for horizontal swipes
-      } else if (deltaY > deltaX && deltaY > 10) {
+      } else if (deltaY > deltaX && deltaY > 15) {
         isHorizontalSwipe = false;
         // Allow vertical scrolling by not preventing default
+        return;
       }
     } else {
       e.preventDefault(); // Continue preventing default for horizontal swipes
     }
-  });
+  }, { passive: false });
 
   carousel.addEventListener("touchend", (e) => {
     if (!startX || !startY) return;
@@ -928,7 +929,7 @@ function initProjectsCarousel() {
     endX = 0;
     endY = 0;
     isHorizontalSwipe = false;
-  });
+  }, { passive: true });
 
   // Handle window resize
   function handleResize() {
@@ -1032,7 +1033,7 @@ function initTestimonialsCarousel() {
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
     isHorizontalSwipe = false;
-  });
+  }, { passive: true });
 
   carousel.addEventListener("touchmove", (e) => {
     if (!startX || !startY) return;
@@ -1044,17 +1045,18 @@ function initTestimonialsCarousel() {
     
     // Determine if this is a horizontal or vertical swipe
     if (!isHorizontalSwipe) {
-      if (deltaX > deltaY && deltaX > 10) {
+      if (deltaX > deltaY && deltaX > 15) {
         isHorizontalSwipe = true;
         e.preventDefault(); // Only prevent default for horizontal swipes
-      } else if (deltaY > deltaX && deltaY > 10) {
+      } else if (deltaY > deltaX && deltaY > 15) {
         isHorizontalSwipe = false;
         // Allow vertical scrolling by not preventing default
+        return;
       }
     } else {
       e.preventDefault(); // Continue preventing default for horizontal swipes
     }
-  });
+  }, { passive: false });
 
   carousel.addEventListener("touchend", (e) => {
     if (!startX || !startY) return;
@@ -1080,7 +1082,7 @@ function initTestimonialsCarousel() {
     endX = 0;
     endY = 0;
     isHorizontalSwipe = false;
-  });
+  }, { passive: true });
 
   // Handle window resize
   function handleResize() {
