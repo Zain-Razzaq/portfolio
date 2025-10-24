@@ -1,5 +1,13 @@
 // DOM Elements - moved inside functions to ensure DOM is loaded
 
+// EmailJS Configuration Constants
+const EMAILJS_CONFIG = {
+  SERVICE_ID: 'service_h2amikf',
+  TEMPLATE_NOTIFICATION: 'template_9zd1fmn',
+  TEMPLATE_CONFIRMATION: 'template_9zd1fmn',
+  PUBLIC_KEY: 'RY0oZmNDIbZi9kgV3'
+};
+
 // Theme Toggle Functionality
 function initThemeToggle() {
   const themeToggle = document.getElementById("themeToggle");
@@ -410,13 +418,15 @@ document.head.appendChild(style);
 function initEmailForm() {
   const contactForm = document.getElementById("contactForm");
   const emailInput = document.getElementById("emailInput");
+  const messageInput = document.getElementById("messageInput");
 
-  if (!contactForm || !emailInput) return;
+  if (!contactForm || !emailInput || !messageInput) return;
 
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
 
@@ -426,18 +436,24 @@ function initEmailForm() {
       return;
     }
 
+    // Message is optional, so no validation needed
+
     // Show loading state
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
 
     try {
-      // For now, we'll simulate sending the email
-      // In a real implementation, you would send this to your backend
-      await simulateEmailSubmission(email);
+      // Send email notification to you
+      await sendEmailNotification(email, message);
+      
+      // Send confirmation email to user
+      await sendConfirmationEmail(email, message);
 
-      showMessage("Thank you! I'll get back to you soon.", "success");
+      showMessage("Thank you! I've received your request and will get back to you soon.", "success");
       emailInput.value = "";
+      messageInput.value = "";
     } catch (error) {
+      console.error('Email submission error:', error);
       showMessage("Something went wrong. Please try again.", "error");
     } finally {
       submitBtn.textContent = originalText;
@@ -452,22 +468,59 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
-// Simulate email submission (replace with real backend call)
-async function simulateEmailSubmission(email) {
+// Send email notification using EmailJS
+async function sendEmailNotification(email, message) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      // Log the email to console (for development)
-      console.log("Email submitted:", email);
+    // Check if EmailJS is loaded
+    if (typeof emailjs === 'undefined') {
+      console.error('EmailJS not loaded. Please include EmailJS script.');
+      reject(new Error('EmailJS not available'));
+      return;
+    }
 
-      // In a real implementation, you would:
-      // 1. Send email to your backend API
-      // 2. Store in database
-      // 3. Send notification email to yourself
-      // 4. Send confirmation email to user
+    // Send email using EmailJS with your exact format
+    emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_NOTIFICATION, {
+      from_name: "zain",
+      user_email: email,
+      message: `New contact form submission from: ${email}\n\nMessage: ${message || 'No message provided'}\n\nTimestamp: ${new Date().toLocaleString()}`,
+      email: "zainrazzaq2003@gmail.com"
+    })
+    .then((response) => {
+      console.log('Email sent successfully:', response);
+      resolve(response);
+    })
+    .catch((error) => {
+      console.error('Email sending failed:', error);
+      reject(error);
+    });
+  });
+}
 
-      // For now, we'll just resolve successfully
-      resolve();
-    }, 1000);
+// Send confirmation email to user
+async function sendConfirmationEmail(email, message) {
+  return new Promise((resolve, reject) => {
+    // Check if EmailJS is loaded
+    if (typeof emailjs === 'undefined') {
+      console.error('EmailJS not loaded. Please include EmailJS script.');
+      reject(new Error('EmailJS not available'));
+      return;
+    }
+
+    // Send confirmation email to user
+    emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_CONFIRMATION, {
+      from_name: "Zain Razzaq",
+      user_email: email,
+      message: `Hi there!\n\nThank you for reaching out to me through my portfolio website.${message ? `\n\nI've received your message:\n\n"${message}"` : '\n\nI\'ve received your contact request.'}\n\nI'll review your request and get back to you within 24 hours. I'm excited to learn more about your project and how I can help you build something amazing!\n\nBest regards,\nZain Razzaq\nAI Expert & Full Stack Developer`,
+      email: email
+    })
+    .then((response) => {
+      console.log('Confirmation email sent successfully:', response);
+      resolve(response);
+    })
+    .catch((error) => {
+      console.error('Confirmation email sending failed:', error);
+      reject(error);
+    });
   });
 }
 
@@ -745,12 +798,128 @@ function animateCounters() {
   });
 }
 
+// Projects Carousel Functionality
+function initProjectsCarousel() {
+  const carousel = document.getElementById("projectsCarousel");
+  const prevBtn = document.getElementById("prevProject");
+  const nextBtn = document.getElementById("nextProject");
+  const indicators = document.querySelectorAll("#projectIndicators .indicator");
+  
+  if (!carousel || !prevBtn || !nextBtn) return;
+
+  const projects = carousel.querySelectorAll(".project-card");
+  const totalProjects = projects.length;
+  
+  // Function to get projects per slide based on screen size
+  function getProjectsPerSlide() {
+    if (window.innerWidth <= 1024) {
+      return 1; // Mobile and tablet: 1 project at a time
+    }
+    return 2; // Desktop: 2 projects at a time
+  }
+  
+  let projectsPerSlide = getProjectsPerSlide();
+  let totalSlides = Math.ceil(totalProjects / projectsPerSlide);
+  let currentSlide = 0;
+
+  // Update carousel position
+  function updateCarousel() {
+    // On mobile, each slide is 100% width, on desktop it's 50% per project
+    const translateX = window.innerWidth <= 1024 
+      ? -currentSlide * 100  // Mobile: 100% per slide
+      : -currentSlide * (100 / projectsPerSlide); // Desktop: calculated per projects
+    
+    carousel.style.transform = `translateX(${translateX}%)`;
+    
+    // Update indicators - show only the ones needed
+    indicators.forEach((indicator, index) => {
+      if (index < totalSlides) {
+        indicator.style.display = 'block';
+        indicator.classList.toggle("active", index === currentSlide);
+      } else {
+        indicator.style.display = 'none';
+      }
+    });
+  }
+
+  // Next slide
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  // Previous slide
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+
+  // Go to specific slide
+  function goToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    updateCarousel();
+  }
+
+  // Event listeners
+  nextBtn.addEventListener("click", nextSlide);
+  prevBtn.addEventListener("click", prevSlide);
+
+  // Indicator clicks
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => goToSlide(index));
+  });
+
+  // Touch/swipe support for mobile
+  let startX = 0;
+  let endX = 0;
+
+  carousel.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+  });
+
+  carousel.addEventListener("touchend", (e) => {
+    endX = e.changedTouches[0].clientX;
+    const deltaX = startX - endX;
+    const threshold = 50;
+
+    if (Math.abs(deltaX) > threshold) {
+      if (deltaX > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  });
+
+  // Handle window resize
+  function handleResize() {
+    const newProjectsPerSlide = getProjectsPerSlide();
+    if (newProjectsPerSlide !== projectsPerSlide) {
+      projectsPerSlide = newProjectsPerSlide;
+      totalSlides = Math.ceil(totalProjects / projectsPerSlide);
+      currentSlide = Math.min(currentSlide, totalSlides - 1);
+      updateCarousel();
+    }
+  }
+
+  // Add resize event listener
+  window.addEventListener('resize', handleResize);
+
+  // Initialize carousel
+  updateCarousel();
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   initLoading();
   initThemeToggle();
   initInteractiveCard();
   initProjectGalleries();
+  initProjectsCarousel(); // Add projects carousel initialization
   initParticles();
   initSkillHover();
   initContactForm();

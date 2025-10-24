@@ -115,6 +115,12 @@
       rel="stylesheet"
     />
 
+    <!-- EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
       {
@@ -398,16 +404,19 @@
               <div class="service-number">Service 01</div>
               <h3>AI-Enhanced Web Applications</h3>
               <p>
-                Build modern web applications with strategic AI features like
-                chatbots, content generation, and intelligent search that
-                improve user engagement and automate routine tasks.
+                Build modern web applications with strategic AI features including
+                intelligent chatbots, automated content generation, smart search
+                algorithms, predictive analytics, and machine learning models that
+                enhance user experience and drive business growth.
               </p>
               <div class="service-benefits">
                 <h4>Mini Benefits:</h4>
                 <ul>
-                  <li>AI chatbot integration</li>
-                  <li>Smart content generation</li>
-                  <li>Intelligent search features</li>
+                  <li>AI chatbot & virtual assistants</li>
+                  <li>Automated content generation</li>
+                  <li>Intelligent search & recommendations</li>
+                  <li>Predictive analytics & insights</li>
+                  <li>Machine learning integration</li>
                 </ul>
               </div>
             </div>
@@ -415,33 +424,38 @@
               <div class="service-number">Service 02</div>
               <h3>Full Stack Business Solutions</h3>
               <p>
-                Complete web solutions for businesses, from modern frontend
-                interfaces to robust backend APIs, optimized databases, and
-                cloud deployment — everything you need to succeed online.
+                Complete web solutions for businesses including e-commerce platforms,
+                SaaS applications, enterprise systems, API development, database
+                optimization, cloud deployment, and scalable architecture that
+                grows with your business needs.
               </p>
               <div class="service-benefits">
                 <h4>Mini Benefits:</h4>
                 <ul>
-                  <li>Modern React/Next.js stack</li>
-                  <li>Scalable backend architecture</li>
-                  <li>Cloud deployment ready</li>
+                  <li>E-commerce & SaaS platforms</li>
+                  <li>Enterprise-grade APIs</li>
+                  <li>Database optimization & scaling</li>
+                  <li>Cloud deployment & DevOps</li>
+                  <li>Performance optimization</li>
                 </ul>
               </div>
             </div>
             <div class="service-card">
               <div class="service-number">Service 03</div>
-              <h3>Portfolio & Personal Brand Sites</h3>
+              <h3>CRM & Platform Development</h3>
               <p>
-                Create a standout online presence with a sleek, professional
-                portfolio that showcases your work, highlights your skills, and
-                tells your story effectively.
+                Specialized websites for CRM platforms like Shopify, WordPress,
+                GoHighLevel (GHL), and Kajabi. Custom integrations, theme development,
+                and seamless API connections that enhance your platform's capabilities.
               </p>
               <div class="service-benefits">
                 <h4>Mini Benefits:</h4>
                 <ul>
-                  <li>Showcase your work</li>
-                  <li>Highlight your skills</li>
-                  <li>Easy to update & maintain</li>
+                  <li>Shopify store development</li>
+                  <li>WordPress custom themes</li>
+                  <li>GoHighLevel integrations</li>
+                  <li>Kajabi platform optimization</li>
+                  <li>Custom plugin development</li>
                 </ul>
               </div>
             </div>
@@ -586,74 +600,13 @@
       <!-- Projects Section -->
       <section id="projects" class="projects">
         <div class="container">
-          <h2 class="section-title">Featured Projects</h2>
-          <div class="projects-grid">
-            <div class="project-card">
-              <div class="project-gallery">
-                <div class="gallery-container">
-                  <div class="gallery-slide">
-                    <div class="gallery-placeholder">
-                      <i class="fas fa-cube" aria-label="3D cube icon"></i>
-                      <span>3D Gaussian Modeling</span>
-                    </div>
-                  </div>
-                  <div class="gallery-slide">
-                    <div class="gallery-placeholder">
-                      <i
-                        class="fas fa-brain"
-                        aria-label="Neural network brain icon"
-                      ></i>
-                      <span>Neural Network Training</span>
-                    </div>
-                  </div>
-                  <div class="gallery-slide">
-                    <div class="gallery-placeholder">
-                      <i
-                        class="fas fa-chart-line"
-                        aria-label="Analytics chart icon"
-                      ></i>
-                      <span>Results Visualization</span>
-                    </div>
-                  </div>
-                </div>
-                <button class="gallery-nav prev">
-                  <i
-                    class="fas fa-chevron-left"
-                    aria-label="Previous slide"
-                  ></i>
-                </button>
-                <button class="gallery-nav next">
-                  <i class="fas fa-chevron-right" aria-label="Next slide"></i>
-                </button>
-                <div class="gallery-indicators">
-                  <div class="gallery-indicator active"></div>
-                  <div class="gallery-indicator"></div>
-                  <div class="gallery-indicator"></div>
-                </div>
-              </div>
-              <div class="project-header">
-                <h3>Mesh Extraction from Dynamic Gaussian Model</h3>
-                <div class="project-tags">
-                  <span class="tag">Computer Vision</span>
-                  <span class="tag">Machine Learning</span>
-                  <span class="tag">4D Gaussian</span>
-                </div>
-              </div>
-              <div class="project-content">
-                <p>
-                  A Computer Vision and ML-based final year project focused on
-                  generating 4D Gaussian models from 2D images of dynamic
-                  scenes. Trained neural networks to predict deformations and
-                  construct 3D meshes using Gaussian centers as vertices.
-                </p>
-                <div class="project-tech">
-                  <span>Python</span>
-                  <span>PyTorch</span>
-                  <span>Computer Vision</span>
-                </div>
-              </div>
-            </div>
-            <div class="project-card">
+          <h2 class="section-title">Projects I've Worked On</h2>
+          <p class="projects-intro">
+            Here are some of the projects I've contributed to, showcasing my expertise in full-stack development and AI integration.
+          </p>
+          <div class="projects-container">
+            <div class="projects-carousel" id="projectsCarousel">
+              <div class="project-card">
               <div class="project-gallery">
                 <div class="gallery-container">
                   <div class="gallery-slide">
@@ -707,27 +660,154 @@
                 </div>
               </div>
               <div class="project-header">
-                <h3>ClassManager - AI Powered Classroom</h3>
+                <h3>Classly - AI-powered smart learning platform</h3>
                 <div class="project-tags">
-                  <span class="tag">AI Integration</span>
-                  <span class="tag">Full Stack</span>
-                  <span class="tag">LLM</span>
+                  <span class="tag">LLM Integration</span>
+                  <span class="tag">Auto-Grading</span>
+                  <span class="tag">React.js</span>
+                  <span class="tag">Node.js</span>
                 </div>
               </div>
               <div class="project-content">
                 <p>
-                  Developed a comprehensive classroom web platform with
-                  role-based access for teachers and students. Features
-                  AI-powered auto-grading using Google Gemini, handwritten text
-                  recognition, and LLM integration for language submissions.
+                  Developed a comprehensive classroom web platform with role-based access for teachers and students.
+                  Features AI-powered auto-grading using Google Gemini, handwritten text recognition, and LLM integration.
                 </p>
-                <div class="project-tech">
-                  <span>React</span>
-                  <span>Django</span>
-                  <span>Google Gemini</span>
-                  <span>OCR</span>
+                <div class="project-actions">
+                  <a href="https://classly.zainrazzaq.xyz" target="_blank" class="btn btn-primary project-btn">
+                    <i class="fas fa-external-link-alt" aria-label="External link icon"></i>
+                    View Website
+                  </a>
                 </div>
               </div>
+            </div>
+            <div class="project-card">
+              <div class="project-gallery">
+                <div class="gallery-container">
+                  <div class="gallery-slide">
+                    <div class="gallery-placeholder">
+                      <i class="fab fa-bitcoin" aria-label="Bitcoin cryptocurrency icon"></i>
+                      <span>Crypto Trading Platform</span>
+                    </div>
+                  </div>
+                  <div class="gallery-slide">
+                    <div class="gallery-placeholder">
+                      <i class="fas fa-mobile-alt" aria-label="Mobile app icon"></i>
+                      <span>Mobile Mining App</span>
+                    </div>
+                  </div>
+                  <div class="gallery-slide">
+                    <div class="gallery-placeholder">
+                      <i class="fas fa-chart-line" aria-label="Analytics chart icon"></i>
+                      <span>Trading Dashboard</span>
+                    </div>
+                  </div>
+                </div>
+                <button class="gallery-nav prev">
+                  <i class="fas fa-chevron-left" aria-label="Previous slide"></i>
+                </button>
+                <button class="gallery-nav next">
+                  <i class="fas fa-chevron-right" aria-label="Next slide"></i>
+                </button>
+                <div class="gallery-indicators">
+                  <div class="gallery-indicator active"></div>
+                  <div class="gallery-indicator"></div>
+                  <div class="gallery-indicator"></div>
+                </div>
+              </div>
+              <div class="project-header">
+                <h3>Bitcoin Yay - A full stack crypto trading platform</h3>
+                <div class="project-tags">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">Tailwind CSS</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">REST APIs</span>
+                  <span class="tag">MongoDB</span>
+                </div>
+              </div>
+              <div class="project-content">
+                <p>
+                  Developed a comprehensive crypto trading platform for Bitcoin Yay showcasing the company's services.
+                  Built with Next.js frontend, Tailwind CSS for styling, and custom backend APIs for secure crypto transactions.
+                </p>
+                <div class="project-actions">
+                  <a href="http://bitcoinyay.com/" target="_blank" class="btn btn-primary project-btn">
+                    <i class="fas fa-external-link-alt" aria-label="External link icon"></i>
+                    View Website
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-gallery">
+                <div class="gallery-container">
+                  <div class="gallery-slide">
+                    <div class="gallery-placeholder">
+                      <i class="fas fa-shopping-cart" aria-label="Shopping cart icon"></i>
+                      <span>E-commerce Store</span>
+                    </div>
+                  </div>
+                  <div class="gallery-slide">
+                    <div class="gallery-placeholder">
+                      <i class="fas fa-mobile-alt" aria-label="Mobile responsive icon"></i>
+                      <span>Responsive Design</span>
+                    </div>
+                  </div>
+                  <div class="gallery-slide">
+                    <div class="gallery-placeholder">
+                      <i class="fas fa-palette" aria-label="Design palette icon"></i>
+                      <span>Elegant UI/UX</span>
+                    </div>
+                  </div>
+                </div>
+                <button class="gallery-nav prev">
+                  <i class="fas fa-chevron-left" aria-label="Previous slide"></i>
+                </button>
+                <button class="gallery-nav next">
+                  <i class="fas fa-chevron-right" aria-label="Next slide"></i>
+                </button>
+                <div class="gallery-indicators">
+                  <div class="gallery-indicator active"></div>
+                  <div class="gallery-indicator"></div>
+                  <div class="gallery-indicator"></div>
+                </div>
+              </div>
+              <div class="project-header">
+                <h3>Olsey Aesthetics - Custom E-commerce Store</h3>
+                <div class="project-tags">
+                  <span class="tag">Shopify</span>
+                  <span class="tag">Custom Development</span>
+                  <span class="tag">Responsive Design</span>
+                </div>
+              </div>
+              <div class="project-content">
+                <p>
+                  Developed a custom e-commerce website for Olsey Aesthetics skincare brand featuring elegant design.
+                  Built on Shopify platform with custom themes, product showcases, and integrated payment systems.
+                </p>
+                <div class="project-actions">
+                  <a href="https://olseyaesthetics.com/" target="_blank" class="btn btn-primary project-btn">
+                    <i class="fas fa-external-link-alt" aria-label="External link icon"></i>
+                    View Website
+                  </a>
+                </div>
+              </div>
+            </div>
+            </div>
+            
+            <!-- Carousel Navigation -->
+            <div class="carousel-navigation">
+              <button class="carousel-btn prev-btn" id="prevProject">
+                <i class="fas fa-chevron-left" aria-label="Previous projects"></i>
+              </button>
+              <div class="carousel-indicators" id="projectIndicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+              </div>
+              <button class="carousel-btn next-btn" id="nextProject">
+                <i class="fas fa-chevron-right" aria-label="Next projects"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -753,13 +833,18 @@
                     placeholder="your@email.com"
                     required
                   />
+                  <textarea
+                    id="messageInput"
+                    placeholder="Tell me about your project or how I can help you... (optional)"
+                    rows="4"
+                  ></textarea>
                   <button type="submit" class="btn btn-primary">
                     Get in Touch
                   </button>
                 </div>
               </form>
               <p class="form-note">
-                No spam. No long forms. Just one email — and a real
+                No spam. No long forms. Just your email and message — and a real
                 conversation.
               </p>
             </div>
@@ -769,24 +854,12 @@
                 <span>zainrazzaq2003@gmail.com</span>
               </a>
               <a
-                href="https://github.com/Zain-Razzaq"
-                target="_blank"
-                class="contact-link"
-              >
-                <i class="fab fa-github" aria-label="GitHub icon"></i>
-                <span>GitHub</span>
-              </a>
-              <a
                 href="https://www.linkedin.com/in/zain-razzaq-96a084228/"
                 target="_blank"
                 class="contact-link"
               >
                 <i class="fab fa-linkedin" aria-label="LinkedIn icon"></i>
                 <span>LinkedIn</span>
-              </a>
-              <a href="https://wa.me/923228687934" class="contact-link">
-                <i class="fab fa-whatsapp" aria-label="WhatsApp icon"></i>
-                <span>+92-322-8687934</span>
               </a>
             </div>
           </div>
@@ -827,6 +900,13 @@
       </div>
     </footer>
 
+    <!-- Initialize EmailJS -->
+    <script type="text/javascript">
+      (function() {
+        emailjs.init('RY0oZmNDIbZi9kgV3'); 
+      })();
+    </script>
+    
     <script src="script.js"></script>
   </body>
 </html>

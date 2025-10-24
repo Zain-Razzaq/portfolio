@@ -1327,6 +1327,16 @@ section {
   position: relative;
 }
 
+.projects-intro {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .projects::before {
   content: "";
   position: absolute;
@@ -1344,11 +1354,40 @@ section {
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  display: flex;
   gap: 2rem;
   position: relative;
   z-index: 2;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.projects-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.projects-carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.project-card {
+  flex: 0 0 calc(50% - 1rem);
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Tablet styles - 1 project at a time */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .project-card {
+    flex: 0 0 calc(100% - 1rem);
+  }
 }
 
 .project-card {
@@ -1556,6 +1595,85 @@ section {
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
+.project-actions {
+  margin-top: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.project-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.project-btn i {
+  font-size: 0.8rem;
+}
+
+/* Carousel Navigation */
+.carousel-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 2rem;
+}
+
+.carousel-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(16, 185, 129, 0.3);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+}
+
+.carousel-btn:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.5);
+  transform: scale(1.1);
+}
+
+.carousel-indicators {
+  display: flex;
+  gap: 1rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
 /* Pilot Project Section */
 .pilot-project {
   background: var(--bg-secondary);
@@ -1740,18 +1858,19 @@ section {
 
 .form-group {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  max-width: 500px;
+  max-width: 600px;
   width: 100%;
   justify-content: center;
   align-items: center;
 }
 
 .form-group input {
-  flex: 1;
+  width: 100%;
   padding: 1rem 1.5rem;
   border: 2px solid rgba(16, 185, 129, 0.2);
-  border-radius: 50px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   color: var(--text-primary);
@@ -1769,10 +1888,53 @@ section {
   color: var(--text-secondary);
 }
 
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 2px solid rgba(16, 185, 129, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 120px;
+  transition: all 0.3s ease;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgba(16, 185, 129, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-group textarea::placeholder {
+  color: var(--text-secondary);
+}
+
 .form-group button {
+  width: 100%;
   padding: 1rem 2rem;
   border-radius: 50px;
-  white-space: nowrap;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.form-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+.form-group button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .form-note {
@@ -2037,25 +2199,23 @@ section {
   }
 
   .form-group {
-    flex-direction: row;
-    gap: 0.75rem;
-    align-items: center;
-    justify-content: center;
     max-width: 400px;
   }
 
   .form-group input {
-    flex: 1;
-    min-width: 0;
     font-size: 0.9rem;
     padding: 0.875rem 1.25rem;
   }
 
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 0.875rem 1.25rem;
+    min-height: 100px;
+  }
+
   .form-group button {
-    flex-shrink: 0;
     padding: 0.875rem 1.5rem;
     font-size: 0.9rem;
-    white-space: nowrap;
   }
 
   .footer-content {
@@ -2167,7 +2327,30 @@ section {
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+  }
+
+  .projects-carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 0;
+    padding: 0;
+  }
+
+  .project-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .carousel-navigation {
+    gap: 1rem;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 
   .contact-links {
@@ -2328,3 +2511,4 @@ section {
     transform: rotate(360deg);
   }
 }
+
