@@ -47,8 +47,11 @@
   font-family: 'Geist Mono', monospace;
   font-size: 18px;
   font-weight: 500;
+  line-height: 1;
   color: #EFF0F4; /* always light — hero is always dark */
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
   transition: font-size var(--transition-base), color var(--transition-fast);
 }
 
@@ -79,6 +82,9 @@
   letter-spacing: 0.05em;
   cursor: pointer;
   background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
   transition: all var(--transition-fast);
 }
 
