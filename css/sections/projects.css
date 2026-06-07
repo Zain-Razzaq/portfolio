@@ -1,0 +1,303 @@
+/* ─── Projects ────────────────────────────────────────────────── */
+.projects {
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+
+.projects-header {
+  margin-bottom: var(--sp-16);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+}
+
+.projects-count {
+  font-family: 'Geist Mono', monospace;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+/* ── Hover-reveal layout ──────────────────────────────────────── */
+.projects-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: var(--sp-16);
+  align-items: start;
+}
+
+/* ── Project list (left) ──────────────────────────────────────── */
+.projects-list {
+  border-top: 1px solid var(--border);
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  align-items: center;
+  gap: var(--sp-6);
+  padding: var(--sp-6) 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  transition: background 0.2s ease;
+  group: true;
+}
+
+.project-row::after {
+  content: '';
+  position: absolute;
+  left: -24px;
+  right: -24px;
+  top: 0;
+  bottom: 0;
+  background: var(--accent-dim);
+  opacity: 0;
+  border-radius: var(--radius-md);
+  transition: opacity 0.25s ease;
+  z-index: -1;
+}
+
+.project-row:hover::after,
+.project-row.active::after { opacity: 1; }
+
+.project-row-num {
+  font-family: 'Geist Mono', monospace;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.2s ease;
+}
+
+.project-row:hover .project-row-num,
+.project-row.active .project-row-num { color: var(--accent); }
+
+.project-row-info {}
+
+.project-row-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.project-row:hover .project-row-title,
+.project-row.active .project-row-title { color: var(--accent); }
+
+.project-row-tags {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.project-row-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.project-row:hover .project-row-arrow,
+.project-row.active .project-row-arrow {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+  transform: rotate(-45deg);
+}
+
+.project-row-arrow svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Preview panel (right) ────────────────────────────────────── */
+.projects-preview {
+  position: sticky;
+  top: 120px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  aspect-ratio: 16 / 11;
+}
+
+.preview-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.preview-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.45s ease, transform 0.6s ease;
+  transform: scale(1.04);
+}
+
+.preview-img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Overlay with project meta */
+.preview-meta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--sp-6);
+  background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 100%);
+  transform: translateY(4px);
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.preview-meta-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: #EFF0F4;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.preview-meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.preview-tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: rgba(239,240,244,0.6);
+  padding: 2px 8px;
+  border: 1px solid rgba(239,240,244,0.2);
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.04em;
+}
+
+/* Placeholder when nothing hovered */
+.preview-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  color: var(--text-muted);
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.preview-placeholder svg {
+  width: 32px;
+  height: 32px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.4;
+}
+
+.preview-placeholder span {
+  font-family: 'Geist Mono', monospace;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+}
+
+.preview-placeholder.hidden { opacity: 0; }
+
+/* ── Mobile: stacked cards ────────────────────────────────────── */
+.projects-mobile {
+  display: none;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.project-mobile-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-primary);
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.project-mobile-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.project-mobile-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-mobile-body {
+  padding: var(--sp-6);
+}
+
+.project-mobile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--sp-3);
+}
+
+.project-mobile-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-2);
+}
+
+.project-mobile-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .projects-layout { grid-template-columns: 1fr 340px; gap: var(--sp-10); }
+}
+
+@media (max-width: 768px) {
+  .projects-layout { display: none; }
+  .projects-mobile { display: flex; }
+}

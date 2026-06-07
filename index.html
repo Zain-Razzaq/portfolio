@@ -1,887 +1,783 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Zain Razzaq - AI Expert & Full Stack Developer | AI-Powered Websites
-    </title>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zain Razzaq — AI Expert & Full Stack Developer. Building intelligent websites and applications that actually work." />
+  <title>Zain Razzaq — AI Expert & Full Stack Developer</title>
 
-    <!-- Meta Description -->
-    <meta
-      name="description"
-      content="Zain Razzaq is an AI Expert and Full Stack Developer specializing in building intelligent, AI-powered websites that adapt, learn, and convert visitors automatically. 3+ years experience in React, Node.js, AI integration, and machine learning."
-    />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-    <!-- Meta Keywords -->
-    <meta
-      name="keywords"
-      content="AI Expert, Full Stack Developer, AI-powered websites, React developer, Node.js developer, machine learning, AI integration, web development, artificial intelligence, chatbot development, intelligent websites, Zain Razzaq"
-    />
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css" />
 
-    <!-- Author -->
-    <meta name="author" content="Zain Razzaq" />
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://zainrazzaq.com" />
+  <!-- GSAP + Lenis -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
 
-    <!-- Sitemap -->
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <!-- Main module -->
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
 
-    <!-- Open Graph Meta Tags -->
-    <meta
-      property="og:title"
-      content="Zain Razzaq - AI Expert & Full Stack Developer"
-    />
-    <meta
-      property="og:description"
-      content="Build an AI-powered website that actually works. I'm an AI Expert who builds intelligent websites that adapt, learn, and convert visitors automatically."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://zainrazzaq.com" />
-    <meta property="og:site_name" content="Zain Razzaq Portfolio" />
-    <meta property="og:locale" content="en_US" />
+  <!-- ─── 01. Preloader ──────────────────────────────────────── -->
+  <div class="preloader" aria-hidden="true">
+    <span class="preloader-logo">Z.R</span>
+    <div class="preloader-bar"></div>
+  </div>
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Zain Razzaq - AI Expert & Full Stack Developer"
-    />
-    <meta
-      name="twitter:description"
-      content="Build an AI-powered website that actually works. I'm an AI Expert who builds intelligent websites that adapt, learn, and convert visitors automatically."
-    />
-    <meta name="twitter:creator" content="@zainrazzaq" />
+  <!-- ─── Custom Cursor ─────────────────────────────────────── -->
+  <div class="cursor-dot"  aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true">
+    <span class="cursor-label">VIEW</span>
+  </div>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
-    <!-- Performance and Security Meta Tags -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="bingbot" content="index, follow" />
+  <!-- ─── 02. Navigation ────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#" class="navbar-logo">Z.R</a>
 
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#000000" />
-    <meta name="msapplication-TileColor" content="#000000" />
+    <div class="navbar-right">
+      <button class="theme-toggle" aria-label="Toggle colour theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <span class="toggle-label">Dark</span>
+      </button>
 
-    <!-- Additional SEO Meta Tags -->
-    <meta name="geo.region" content="PK" />
-    <meta name="geo.placename" content="Lahore" />
-    <meta name="geo.position" content="31.5204;74.3587" />
-    <meta name="ICBM" content="31.5204, 74.3587" />
-    <meta name="language" content="en" />
-    <meta name="revisit-after" content="7 days" />
-    <meta name="distribution" content="global" />
-    <meta name="rating" content="general" />
+      <a href="#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </nav>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <!-- ─── 03. Hero ──────────────────────────────────────────── -->
+  <section class="hero" id="hero">
 
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Aurora gradient blobs -->
+    <div class="hero-aurora" aria-hidden="true">
+      <div class="aurora-blob aurora-blob-1"></div>
+      <div class="aurora-blob aurora-blob-2"></div>
+      <div class="aurora-blob aurora-blob-3"></div>
+      <div class="aurora-blob aurora-blob-4"></div>
+    </div>
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      .skip-nav {
-        position: absolute;
-        top: -40px;
-        left: 6px;
-        background: #000;
-        color: #fff;
-        padding: 8px;
-        text-decoration: none;
-        z-index: 1000;
-        border-radius: 4px;
-      }
-      .skip-nav:focus {
-        top: 6px;
-      }
-    </style>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Background particle network -->
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
-    <!-- EmailJS SDK -->
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-    ></script>
+    <div class="container">
+      <div class="hero-inner">
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Zain Razzaq",
-        "jobTitle": "AI Expert & Full Stack Developer",
-        "description": "AI Expert and Full Stack Developer specializing in building intelligent, AI-powered websites that adapt, learn, and convert visitors automatically.",
-        "url": "https://zainrazzaq.com",
-        "email": "zainrazzaq2003@gmail.com",
-        "telephone": "+92-322-8687934",
-        "sameAs": [
-          "https://github.com/Zain-Razzaq",
-          "https://www.linkedin.com/in/zain-razzaq-96a084228/"
-        ],
-        "knowsAbout": [
-          "Artificial Intelligence",
-          "Machine Learning",
-          "Full Stack Development",
-          "React.js",
-          "Node.js",
-          "AI Integration",
-          "Web Development",
-          "Computer Vision",
-          "Natural Language Processing"
-        ],
-        "hasOccupation": {
-          "@type": "Occupation",
-          "name": "AI Expert & Full Stack Developer",
-          "description": "Building intelligent, AI-powered websites and applications"
-        },
-        "alumniOf": {
-          "@type": "EducationalOrganization",
-          "name": "Information Technology University of Punjab",
-          "location": "Lahore, Pakistan"
-        },
-        "offers": [
-          {
-            "@type": "Service",
-            "name": "AI-Enhanced Web Applications",
-            "description": "Build modern web applications with strategic AI features like chatbots, content generation, and intelligent search"
-          },
-          {
-            "@type": "Service",
-            "name": "Full Stack Business Solutions",
-            "description": "Complete web solutions for businesses, from modern frontend interfaces to robust backend APIs"
-          },
-          {
-            "@type": "Service",
-            "name": "Portfolio & Personal Brand Sites",
-            "description": "Create a standout online presence with a sleek, professional portfolio"
-          }
-        ]
-      }
-    </script>
+        <!-- ── Left: text content ── -->
+        <div class="hero-content">
 
-    <!-- Additional Structured Data for Website -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Zain Razzaq Portfolio",
-        "url": "https://zainrazzaq.com",
-        "description": "AI Expert and Full Stack Developer specializing in building intelligent, AI-powered websites",
-        "author": {
-          "@type": "Person",
-          "name": "Zain Razzaq"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://zainrazzaq.com/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <!-- Skip Navigation for Accessibility -->
-    <a href="#main-content" class="skip-nav">Skip to main content</a>
+          <span class="hero-label">AI Expert &amp; Full Stack Developer</span>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <span class="logo-text">Z.R</span>
-        </div>
+          <h1 class="hero-title">
+            <span class="line-wrapper">Building <span class="word-accent">Intelligent</span></span>
+            <span class="line-wrapper">Systems That Work.</span>
+          </h1>
 
-        <div class="nav-center"></div>
-
-        <div class="nav-controls">
-          <a href="#contact" class="nav-cta">
-            <i class="fas fa-rocket" aria-label="Rocket icon"></i>
-            <span>Let's Build</span>
-          </a>
-          <button class="theme-toggle" id="themeToggle">
-            <i
-              class="fas fa-moon"
-              id="themeIcon"
-              aria-label="Dark mode toggle"
-            ></i>
-            <span id="themeText">Dark</span>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main id="main-content">
-      <!-- Hero Section -->
-      <section id="home" class="hero">
-        <div class="hero-container">
-          <div class="hero-content">
-            <div class="hero-text">
-              <h1 class="hero-title">
-                Build an AI-Powered Website That Actually Works.
-              </h1>
-              <p class="hero-subtitle">
-                Hey, I'm <span class="highlight">Zain Razzaq</span> — an AI
-                Expert who builds intelligent websites that adapt, learn, and
-                convert visitors automatically.
-              </p>
-              <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary"
-                  >Let's Build Your AI Website</a
-                >
-                <a href="#services" class="btn btn-secondary">Learn More</a>
-              </div>
-            </div>
-            <div class="hero-image">
-              <div class="floating-card">
-                <div class="code-snippet">
-                  <div class="code-header">
-                    <div class="code-dots">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                  <div class="code-content">
-                    <span class="code-line"
-                      ><span class="keyword">const</span>
-                      <span class="variable">developer</span> = {</span
-                    >
-                    <span class="code-line">
-                      <span class="property">name</span>:
-                      <span class="string">'Zain Razzaq'</span>,</span
-                    >
-                    <span class="code-line">
-                      <span class="property">experience</span>:
-                      <span class="string">'3+ years'</span>,</span
-                    >
-                    <span class="code-line">
-                      <span class="property">passion</span>:
-                      <span class="string">'AI & Web Dev'</span></span
-                    >
-                    <span class="code-line">};</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="scroll-indicator">
-        <div class="scroll-arrow"></div>
-      </div> -->
-      </section>
-
-      <!-- Value Proposition Section -->
-      <section class="value-proposition">
-        <div class="container">
-          <div class="value-content">
-            <div class="value-text">
-              <h2>Your Website Should Think for You — Not Just Sit There.</h2>
-              <p>
-                Running a business is tough — and your website shouldn't make it
-                harder. Maybe you've tried building it yourself, or hired
-                someone who disappeared halfway. You deserve an intelligent site
-                that actually learns from your customers and helps your business
-                grow automatically.
-              </p>
-              <p>
-                That's why I specialize in building AI-powered websites that
-                adapt to user behavior, provide intelligent recommendations, and
-                convert visitors into customers — without the stress, endless
-                revisions, or overpriced agencies.
-              </p>
-              <a href="#contact" class="btn btn-primary"
-                >Let's Build an AI Website That Works for You</a
-              >
-            </div>
-            <div class="value-image">
-              <div class="project-showcase">
-                <div class="showcase-header">
-                  <div class="showcase-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <span class="showcase-url">www.yourwebsite.com</span>
-                </div>
-                <div class="showcase-content">
-                  <div class="showcase-hero">
-                    <h3>AI-Powered Business Website</h3>
-                    <p>Intelligent, adaptive, and conversion-focused</p>
-                  </div>
-                  <div class="showcase-features">
-                    <div class="feature-item">
-                      <i class="fas fa-brain" aria-label="AI brain icon"></i>
-                      <span>AI Integration</span>
-                    </div>
-                    <div class="feature-item">
-                      <i
-                        class="fas fa-robot"
-                        aria-label="Robot automation icon"
-                      ></i>
-                      <span>Smart Automation</span>
-                    </div>
-                    <div class="feature-item">
-                      <i
-                        class="fas fa-chart-line"
-                        aria-label="Analytics chart icon"
-                      ></i>
-                      <span>Learning Analytics</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About Section -->
-      <!-- <section id="about" class="about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-          <div class="about-text">
-            <p>
-              I'm a passionate Full Stack Developer with a strong background in
-              AI and machine learning. I hold a BS in Computer Science from
-              Information Technology University of Punjab, Lahore, where I
-              developed a solid foundation in software engineering principles.
-            </p>
-            <p>
-              My journey spans from web development to cutting-edge AI research,
-              having worked on projects ranging from crypto exchange platforms
-              to AI-powered educational tools. I specialize in creating scalable
-              web applications and integrating AI solutions to solve real-world
-              problems.
-            </p>
-            <div class="about-highlights">
-              <div class="highlight-item">
-                <i class="fas fa-laptop-code"></i>
-                <span>3+ Years Experience</span>
-              </div>
-              <div class="highlight-item">
-                <i class="fas fa-brain"></i>
-                <span>AI Integration Expert</span>
-              </div>
-              <div class="highlight-item">
-                <i class="fas fa-cubes"></i>
-                <span>Full Stack Developer</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-      <!-- Services Section -->
-      <section class="services" id="services">
-        <div class="container">
-          <h2 class="section-title">What I Build For You</h2>
-          <p class="services-intro">
-            I design and develop modern websites with strategic AI integration
-            that enhance user experience and drive real business results.
+          <p class="hero-body">
+            From first concept to deployed product — I build AI-powered digital experiences for ambitious startups and businesses that want to move fast and ship right.
           </p>
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="service-number">Service 01</div>
-              <h3>AI-Enhanced Web Applications</h3>
-              <p>
-                Build modern web applications with strategic AI features including
-                intelligent chatbots, automated content generation, smart search
-                algorithms, predictive analytics, and machine learning models that
-                enhance user experience and drive business growth.
-              </p>
-              <div class="service-benefits">
-                <h4>Mini Benefits:</h4>
-                <ul>
-                  <li>AI chatbot & virtual assistants</li>
-                  <li>Automated content generation</li>
-                  <li>Intelligent search & recommendations</li>
-                  <li>Predictive analytics & insights</li>
-                  <li>Machine learning integration</li>
-                </ul>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-number">Service 02</div>
-              <h3>Full Stack Business Solutions</h3>
-              <p>
-                Complete web solutions for businesses including e-commerce platforms,
-                SaaS applications, enterprise systems, API development, database
-                optimization, cloud deployment, and scalable architecture that
-                grows with your business needs.
-              </p>
-              <div class="service-benefits">
-                <h4>Mini Benefits:</h4>
-                <ul>
-                  <li>E-commerce & SaaS platforms</li>
-                  <li>Enterprise-grade APIs</li>
-                  <li>Database optimization & scaling</li>
-                  <li>Cloud deployment & DevOps</li>
-                  <li>Performance optimization</li>
-                </ul>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-number">Service 03</div>
-              <h3>CRM & Platform Development</h3>
-              <p>
-                Specialized websites for CRM platforms like Shopify, WordPress,
-                GoHighLevel (GHL), and Kajabi. Custom integrations, theme development,
-                and seamless API connections that enhance your platform's capabilities.
-              </p>
-              <div class="service-benefits">
-                <h4>Mini Benefits:</h4>
-                <ul>
-                  <li>Shopify store development</li>
-                  <li>WordPress custom themes</li>
-                  <li>GoHighLevel integrations</li>
-                  <li>Kajabi platform optimization</li>
-                  <li>Custom plugin development</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="services-cta">
-            <p>Need something custom?</p>
-            <a href="#contact" class="btn btn-secondary">
-              <i class="fas fa-star" aria-label="Star icon"></i>
-              Let's talk
+
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">
+              Let's Build
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills Section -->
-      <section id="skills" class="skills">
-        <div class="container">
-          <h2 class="section-title">Tech Stack</h2>
-          <div class="skills-grid">
-            <div class="skill-category">
-              <h3>
-                <i class="fas fa-robot" aria-label="AI robot icon"></i> AI & LLM
-                Integration
-              </h3>
-              <div class="skill-items">
-                <span class="skill-item">LLMs integration</span>
-                <span class="skill-item">Pytorch</span>
-                <span class="skill-item">LangChain $ Camel AI</span>
-                <span class="skill-item">Hugging Face Models</span>
-              </div>
-            </div>
-            <div class="skill-category">
-              <h3>
-                <i class="fas fa-code" aria-label="Code development icon"></i>
-                Frontend Development
-              </h3>
-              <div class="skill-items">
-                <span class="skill-item">React.js</span>
-                <span class="skill-item">Next.js</span>
-                <span class="skill-item">TypeScript</span>
-                <span class="skill-item">Tailwind CSS</span>
-                <span class="skill-item">Material UI</span>
-              </div>
-            </div>
-            <div class="skill-category">
-              <h3>
-                <i class="fas fa-server" aria-label="Server backend icon"></i>
-                Backend Development
-              </h3>
-              <div class="skill-items">
-                <span class="skill-item">Node.js</span>
-                <span class="skill-item">Express</span>
-                <span class="skill-item">REST APIs</span>
-                <span class="skill-item">MySQL</span>
-                <span class="skill-item">MongoDB</span>
-                <span class="skill-item">Docker</span>
-                <span class="skill-item">AWS</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Process Section -->
-      <section class="process">
-        <div class="container">
-          <h2 class="section-title">
-            My AI Development Process: Intelligent. Strategic. Results-Driven.
-          </h2>
-          <p class="process-intro">
-            From AI consultation to intelligent deployment, here's how I ensure
-            your AI-powered website delivers measurable results and learns from
-            every interaction.
-          </p>
-          <div class="process-timeline">
-            <div class="process-step">
-              <div class="step-number">
-                <i class="fas fa-check" aria-label="Check mark icon"></i>
-              </div>
-              <div class="step-content">
-                <h3>Analyze Your AI Requirements</h3>
-                <p>
-                  Before writing a single line of code, I'll analyze your
-                  business needs and determine the optimal AI integration
-                  strategy — from chatbots to predictive analytics to automated
-                  workflows.
-                </p>
-              </div>
-            </div>
-            <div class="process-step">
-              <div class="step-number">
-                <i class="fas fa-check" aria-label="Check mark icon"></i>
-              </div>
-              <div class="step-content">
-                <h3>Design AI-Powered Architecture</h3>
-                <p>
-                  I design the perfect AI architecture and user flow so your
-                  website intelligently adapts to user behavior, provides
-                  personalized experiences, and converts visitors into customers
-                  automatically.
-                </p>
-              </div>
-            </div>
-            <div class="process-step">
-              <div class="step-number">
-                <i class="fas fa-check" aria-label="Check mark icon"></i>
-              </div>
-              <div class="step-content">
-                <h3>Build Intelligent Solutions</h3>
-                <p>
-                  Your AI-powered website is crafted with precision —
-                  fast-loading, visually engaging, and designed to learn and
-                  adapt across all devices while providing intelligent user
-                  experiences.
-                </p>
-              </div>
-            </div>
-            <div class="process-step">
-              <div class="step-number">
-                <i class="fas fa-check" aria-label="Check mark icon"></i>
-              </div>
-              <div class="step-content">
-                <h3>Deploy & Learn</h3>
-                <p>
-                  Once live, I deploy AI monitoring systems that continuously
-                  learn from user interactions, automatically optimize
-                  performance, and ensure your site consistently delivers
-                  measurable results while getting smarter over time.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="process-cta">
             <a href="#projects" class="btn btn-secondary">
-              <i class="fas fa-star" aria-label="Star icon"></i>
-              See These In Action
+              See My Work
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-count="3" data-suffix="+">0</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="30" data-suffix="+">0</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="100" data-suffix="%">0</span>
+              <span class="stat-label">On-Time Delivery</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── Right: AI chip visual ── -->
+        <div class="hero-visual" aria-hidden="true">
+          <img src="assets/Removal-570.png" alt="" class="hero-asset" />
+        </div>
+
+      </div><!-- .hero-inner -->
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span class="scroll-label">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ─── 04. Marquee ───────────────────────────────────────── -->
+  <div class="marquee-section" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-inner">
+        <span class="marquee-item">React.js<span class="dot"></span></span>
+        <span class="marquee-item">Next.js<span class="dot"></span></span>
+        <span class="marquee-item">Node.js<span class="dot"></span></span>
+        <span class="marquee-item">AI Integration<span class="dot"></span></span>
+        <span class="marquee-item">TypeScript<span class="dot"></span></span>
+        <span class="marquee-item">LLMs<span class="dot"></span></span>
+        <span class="marquee-item">Shopify<span class="dot"></span></span>
+        <span class="marquee-item">MongoDB<span class="dot"></span></span>
+        <span class="marquee-item">Full Stack<span class="dot"></span></span>
+        <span class="marquee-item">3+ Years<span class="dot"></span></span>
+        <span class="marquee-item">React.js<span class="dot"></span></span>
+        <span class="marquee-item">Next.js<span class="dot"></span></span>
+        <span class="marquee-item">Node.js<span class="dot"></span></span>
+        <span class="marquee-item">AI Integration<span class="dot"></span></span>
+        <span class="marquee-item">TypeScript<span class="dot"></span></span>
+        <span class="marquee-item">LLMs<span class="dot"></span></span>
+        <span class="marquee-item">Shopify<span class="dot"></span></span>
+        <span class="marquee-item">MongoDB<span class="dot"></span></span>
+        <span class="marquee-item">Full Stack<span class="dot"></span></span>
+        <span class="marquee-item">3+ Years<span class="dot"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 05. About ─────────────────────────────────────────── -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-header">
+        <span class="section-label">// 001 — About</span>
+        <h2 class="section-heading reveal">Who I Am.</h2>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- Left: text + stats -->
+        <div class="about-content">
+          <div class="about-body">
+            <p class="reveal">
+              I'm Zain — an AI Expert and Full Stack Developer with <strong>3+ years</strong> of experience building intelligent software systems. I specialise in turning complex technical ideas into products that actually ship and scale.
+            </p>
+            <p class="reveal">
+              My core focus is <strong>AI integration and systems engineering</strong> — from LLM pipelines and RAG architectures to fine-tuned models and real-time AI features wired into production apps. I'm fluent in the full stack: React, Next.js, Node.js, Python, and everything in between.
+            </p>
+
+            <ul class="about-values reveal">
+              <li class="about-value-item">3+ years building AI &amp; ML systems</li>
+              <li class="about-value-item">LLMs, RAG pipelines &amp; AI integrations</li>
+              <li class="about-value-item">Full stack — React, Node.js, Python</li>
+              <li class="about-value-item">From prototype to production, fast</li>
+            </ul>
+          </div>
+
+          <div class="about-stats reveal">
+            <div class="about-stat">
+              <span class="about-stat-number">3+</span>
+              <span class="about-stat-label">Years in AI &amp; ML</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat-number">50+</span>
+              <span class="about-stat-label">Projects Shipped</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat-number">∞</span>
+              <span class="about-stat-label">Curiosity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: avatar -->
+        <div class="about-avatar-wrap reveal">
+          <div class="about-avatar">
+            <img src="assets/my-image.jpeg" alt="Zain Razzaq" class="avatar-photo" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 06. Services ──────────────────────────────────────── -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <span class="section-label">// 002 — Services</span>
+        <h2 class="section-heading reveal">What I Build.</h2>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-item reveal">
+          <span class="service-num" aria-hidden="true">01</span>
+          <div class="service-icon-wrap">
+            <!-- Brain/AI icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2a5 5 0 0 1 5 5v1a4 4 0 0 1 2 3.5 4 4 0 0 1-2 3.5V17a5 5 0 0 1-10 0v-2A4 4 0 0 1 5 11.5 4 4 0 0 1 7 8V7a5 5 0 0 1 5-5z"/>
+              <path d="M9 10h.01M15 10h.01M9.5 14.5s1 1.5 2.5 1.5 2.5-1.5 2.5-1.5"/>
+            </svg>
+          </div>
+          <span class="service-seq">01 — AI Solutions</span>
+          <div class="service-body">
+            <h3 class="service-title">AI-Enhanced Web Applications</h3>
+            <p class="service-desc">LLM integrations, smart chatbots, and predictive analytics baked into your product — not as add-ons, but as core features that users actually rely on.</p>
+          </div>
+          <div class="service-tags">
+            <span class="service-tag">LLM Integration</span>
+            <span class="service-tag">Chatbots</span>
+            <span class="service-tag">Auto-Grading</span>
+            <span class="service-tag">AI APIs</span>
+          </div>
+        </article>
+
+        <article class="service-item reveal">
+          <span class="service-num" aria-hidden="true">02</span>
+          <div class="service-icon-wrap">
+            <!-- Layers/Stack icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </div>
+          <span class="service-seq">02 — Full Stack</span>
+          <div class="service-body">
+            <h3 class="service-title">Full Stack Business Solutions</h3>
+            <p class="service-desc">End-to-end applications — React front-ends, Node back-ends, and solid databases — engineered to scale cleanly from MVP to production without a rewrite.</p>
+          </div>
+          <div class="service-tags">
+            <span class="service-tag">React / Next.js</span>
+            <span class="service-tag">Node.js</span>
+            <span class="service-tag">MongoDB</span>
+            <span class="service-tag">REST APIs</span>
+          </div>
+        </article>
+
+        <article class="service-item reveal">
+          <span class="service-num" aria-hidden="true">03</span>
+          <div class="service-icon-wrap">
+            <!-- Grid/CRM icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </div>
+          <span class="service-seq">03 — Platforms</span>
+          <div class="service-body">
+            <h3 class="service-title">CRM &amp; Platform Development</h3>
+            <p class="service-desc">Shopify, GoHighLevel, Kajabi — bespoke themes, custom plugins, and API integrations that unlock what off-the-shelf configurations can't reach.</p>
+          </div>
+          <div class="service-tags">
+            <span class="service-tag">Shopify</span>
+            <span class="service-tag">GoHighLevel</span>
+            <span class="service-tag">Kajabi</span>
+            <span class="service-tag">Custom Themes</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 07. Process ───────────────────────────────────────── -->
+  <section class="process" id="process">
+    <div class="container">
+      <span class="section-label">// 003 — Process</span>
+      <h2 class="section-heading reveal">How I Work.</h2>
+
+      <div class="process-flow">
+
+        <!-- Step 01 -->
+        <div class="process-step reveal" data-step="1">
+          <div class="step-node">
+            <div class="step-node-ring"></div>
+            <div class="step-node-inner">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+          </div>
+          <div class="step-content">
+            <div class="step-label">Step 01</div>
+            <h3 class="step-title">Understand the Problem</h3>
+            <p class="step-desc">I ask the right questions first — no assumptions, no wasted code. Deep discovery before a single line is written.</p>
+          </div>
+        </div>
+
+        <div class="process-seg" aria-hidden="true"><div class="seg-fill"></div></div>
+
+        <!-- Step 02 -->
+        <div class="process-step reveal" data-step="2">
+          <div class="step-node">
+            <div class="step-node-ring"></div>
+            <div class="step-node-inner">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </div>
+          </div>
+          <div class="step-content">
+            <div class="step-label">Step 02</div>
+            <h3 class="step-title">Design the Architecture</h3>
+            <p class="step-desc">Wireframes, data models, and AI strategy before touching a keyboard. Systems that are easy to change later.</p>
+          </div>
+        </div>
+
+        <div class="process-seg" aria-hidden="true"><div class="seg-fill"></div></div>
+
+        <!-- Step 03 -->
+        <div class="process-step reveal" data-step="3">
+          <div class="step-node">
+            <div class="step-node-ring"></div>
+            <div class="step-node-inner">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+          </div>
+          <div class="step-content">
+            <div class="step-label">Step 03</div>
+            <h3 class="step-title">Build with Precision</h3>
+            <p class="step-desc">Clean code, modular structure, optimized for performance from the start — not patched later.</p>
+          </div>
+        </div>
+
+        <div class="process-seg" aria-hidden="true"><div class="seg-fill"></div></div>
+
+        <!-- Step 04 -->
+        <div class="process-step reveal" data-step="4">
+          <div class="step-node">
+            <div class="step-node-ring"></div>
+            <div class="step-node-inner">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="step-content">
+            <div class="step-label">Step 04</div>
+            <h3 class="step-title">Ship &amp; Improve</h3>
+            <p class="step-desc">Deploy, monitor, iterate. Your product gets smarter and faster over time, not just at launch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 08. Projects ──────────────────────────────────────── -->
+  <section class="projects" id="projects">
+    <div class="container">
+
+      <div class="projects-header">
+        <div>
+          <span class="section-label">// 004 — Work</span>
+          <h2 class="section-heading">Case Studies.</h2>
+        </div>
+        <span class="projects-count">04 projects</span>
+      </div>
+
+      <!-- Desktop: hover-reveal layout -->
+      <div class="projects-layout">
+
+        <!-- Left: project rows -->
+        <div class="projects-list">
+
+          <a class="project-row" href="https://classly.zainrazzaq.xyz" target="_blank" rel="noopener noreferrer" data-index="0">
+            <span class="project-row-num">01</span>
+            <div class="project-row-info">
+              <span class="project-row-title">Classly</span>
+              <span class="project-row-tags">LLM · Auto-Grading · React · Node.js</span>
+            </div>
+            <div class="project-row-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </a>
+
+          <a class="project-row" href="https://olseyaesthetics.com" target="_blank" rel="noopener noreferrer" data-index="1">
+            <span class="project-row-num">02</span>
+            <div class="project-row-info">
+              <span class="project-row-title">Olsey Aesthetics</span>
+              <span class="project-row-tags">Shopify · Custom Theme · E-Commerce</span>
+            </div>
+            <div class="project-row-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </a>
+
+          <a class="project-row" href="https://bitcoinyay.com" target="_blank" rel="noopener noreferrer" data-index="2">
+            <span class="project-row-num">03</span>
+            <div class="project-row-info">
+              <span class="project-row-title">Bitcoin Yay</span>
+              <span class="project-row-tags">Next.js · REST APIs · MongoDB</span>
+            </div>
+            <div class="project-row-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </a>
+
+          <a class="project-row" href="#" data-index="3">
+            <span class="project-row-num">04</span>
+            <div class="project-row-info">
+              <span class="project-row-title">BioRegen</span>
+              <span class="project-row-tags">React · Custom Design · Biotech</span>
+            </div>
+            <div class="project-row-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Right: sticky preview panel -->
+        <div class="projects-preview">
+          <div class="preview-frame">
+            <img src="assets/images/classly.png"    alt="Classly preview"    class="preview-img" loading="lazy" />
+            <img src="assets/images/olsey.png"      alt="Olsey preview"      class="preview-img" loading="lazy" />
+            <img src="assets/images/bitcoinyay.png" alt="Bitcoin Yay preview" class="preview-img" loading="lazy" />
+            <img src="assets/images/bioregen.png"   alt="BioRegen preview"   class="preview-img" loading="lazy" />
+
+            <!-- Overlay meta (updated by JS) -->
+            <div class="preview-meta">
+              <span class="preview-meta-title">Hover a project to preview</span>
+              <div class="preview-meta-tags"></div>
+            </div>
+
+            <div class="preview-placeholder">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              <span>Hover to preview</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mobile: stacked cards -->
+      <div class="projects-mobile">
+
+        <a class="project-mobile-card" href="https://classly.zainrazzaq.xyz" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/classly.png" alt="Classly" class="project-mobile-image" loading="lazy" />
+          <div class="project-mobile-body">
+            <div class="project-mobile-tags">
+              <span class="card-tag">LLM</span><span class="card-tag">React</span><span class="card-tag">Node.js</span>
+            </div>
+            <h3 class="project-mobile-title">Classly — AI Learning Platform</h3>
+            <p class="project-mobile-desc">Intelligent education platform with auto-grading, adaptive paths, and LLM-powered tutoring.</p>
+          </div>
+        </a>
+
+        <a class="project-mobile-card" href="https://olseyaesthetics.com" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/olsey.png" alt="Olsey Aesthetics" class="project-mobile-image" loading="lazy" />
+          <div class="project-mobile-body">
+            <div class="project-mobile-tags">
+              <span class="card-tag">Shopify</span><span class="card-tag">E-Commerce</span>
+            </div>
+            <h3 class="project-mobile-title">Olsey Aesthetics — E-Commerce</h3>
+            <p class="project-mobile-desc">Bespoke Shopify storefront with pixel-perfect custom theme and conversion-optimised layouts.</p>
+          </div>
+        </a>
+
+        <a class="project-mobile-card" href="https://bitcoinyay.com" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/bitcoinyay.png" alt="Bitcoin Yay" class="project-mobile-image" loading="lazy" />
+          <div class="project-mobile-body">
+            <div class="project-mobile-tags">
+              <span class="card-tag">Next.js</span><span class="card-tag">MongoDB</span>
+            </div>
+            <h3 class="project-mobile-title">Bitcoin Yay — Crypto Platform</h3>
+            <p class="project-mobile-desc">Real-time crypto trading interface with live price feeds and user portfolio management.</p>
+          </div>
+        </a>
+
+        <a class="project-mobile-card" href="#">
+          <img src="assets/images/bioregen.png" alt="BioRegen" class="project-mobile-image" loading="lazy" />
+          <div class="project-mobile-body">
+            <div class="project-mobile-tags">
+              <span class="card-tag">React</span><span class="card-tag">Biotech</span>
+            </div>
+            <h3 class="project-mobile-title">BioRegen — Pharma Website</h3>
+            <p class="project-mobile-desc">High-credibility web presence for a biotech firm with a custom React design system.</p>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── 09. Tech Stack ────────────────────────────────────── -->
+  <section class="stack" id="stack">
+    <div class="container">
+      <span class="section-label">// 005 — Stack</span>
+      <h2 class="section-heading reveal">Built With.</h2>
+
+      <div class="stack-categories">
+
+        <!-- Frontend -->
+        <div class="stack-category reveal">
+          <span class="stack-category-label">Frontend</span>
+          <div class="stack-pills">
+            <span class="tech-pill pill-lg">
+              <img src="assets/icons/react.svg" alt="" loading="lazy" width="20" height="20" />
+              React.js
+            </span>
+            <span class="tech-pill pill-lg">
+              <img src="assets/icons/nextjs.svg" alt="" loading="lazy" width="20" height="20" class="icon-adaptive" />
+              Next.js
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/typescript.svg" alt="" loading="lazy" width="18" height="18" />
+              TypeScript
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/tailwind.svg" alt="" loading="lazy" width="18" height="18" />
+              Tailwind CSS
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/figma.svg" alt="" loading="lazy" width="18" height="18" />
+              Figma
+            </span>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="stack-category reveal">
+          <span class="stack-category-label">Backend &amp; Database</span>
+          <div class="stack-pills">
+            <span class="tech-pill pill-lg">
+              <img src="assets/icons/nodejs.svg" alt="" loading="lazy" width="20" height="20" />
+              Node.js
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/express.svg" alt="" loading="lazy" width="18" height="18" class="icon-adaptive" />
+              Express
+            </span>
+            <span class="tech-pill pill-lg">
+              <img src="assets/icons/mongodb.svg" alt="" loading="lazy" width="20" height="20" />
+              MongoDB
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/mysql.svg" alt="" loading="lazy" width="18" height="18" />
+              MySQL
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/docker.svg" alt="" loading="lazy" width="18" height="18" />
+              Docker
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/aws.svg" alt="" loading="lazy" width="20" height="20" />
+              AWS
+            </span>
+          </div>
+        </div>
+
+        <!-- AI & ML -->
+        <div class="stack-category reveal">
+          <span class="stack-category-label">AI &amp; Machine Learning</span>
+          <div class="stack-pills">
+            <span class="tech-pill pill-lg">
+              <img src="assets/icons/pytorch.svg" alt="" loading="lazy" width="20" height="20" />
+              PyTorch
+            </span>
+            <span class="tech-pill pill-lg">
+              <img src="assets/icons/langchain.svg" alt="" loading="lazy" width="20" height="20" />
+              LangChain
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/openai.svg" alt="" loading="lazy" width="18" height="18" class="icon-adaptive" />
+              OpenAI APIs
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/huggingface.svg" alt="" loading="lazy" width="18" height="18" />
+              HuggingFace
+            </span>
+          </div>
+        </div>
+
+        <!-- Platforms -->
+        <div class="stack-category reveal">
+          <span class="stack-category-label">Platforms &amp; Tools</span>
+          <div class="stack-pills">
+            <span class="tech-pill pill-lg">
+              <img src="assets/icons/shopify.svg" alt="" loading="lazy" width="20" height="20" />
+              Shopify
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/wordpress.svg" alt="" loading="lazy" width="18" height="18" />
+              WordPress
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/git.svg" alt="" loading="lazy" width="18" height="18" />
+              Git
+            </span>
+            <span class="tech-pill">
+              <img src="assets/icons/gohighlevel.svg" alt="" loading="lazy" width="20" height="20" />
+              GoHighLevel
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 10. Testimonials ──────────────────────────────────── -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <span class="section-label">// 006 — Testimonials</span>
+        <h2 class="section-heading reveal">Client Words.</h2>
+      </div>
+
+      <div class="testimonials-carousel">
+
+        <div class="testimonial-slide active">
+          <span class="testimonial-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">Zain built our entire learning platform from scratch in record time. The AI features he integrated set us completely apart from competitors. Genuinely exceptional work.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-avatar">A</div>
+            <span class="testimonial-name">Ahmad S.</span>
+            <span class="testimonial-role">Founder, Classly</span>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <span class="testimonial-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">Our Shopify store conversion rate jumped 40% after Zain redesigned it. He understood the brand instantly and delivered something that felt premium without feeling cold.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-avatar">S</div>
+            <span class="testimonial-name">Sarah M.</span>
+            <span class="testimonial-role">Founder, Olsey Aesthetics</span>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <span class="testimonial-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">Working with Zain was refreshingly straightforward. He asks the right questions, explains his decisions clearly, and ships on time. Exactly what you want in a developer.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-avatar">K</div>
+            <span class="testimonial-name">Kamran A.</span>
+            <span class="testimonial-role">CTO, Bitcoin Yay</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="testimonial-nav" role="tablist" aria-label="Testimonial navigation">
+        <button class="testimonial-dot active" role="tab" aria-label="Testimonial 1"></button>
+        <button class="testimonial-dot"        role="tab" aria-label="Testimonial 2"></button>
+        <button class="testimonial-dot"        role="tab" aria-label="Testimonial 3"></button>
+      </div>
+
+      <div class="testimonial-arrows">
+        <button class="testimonial-arrow testimonial-prev" aria-label="Previous testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="testimonial-arrow testimonial-next" aria-label="Next testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── 11. Contact ───────────────────────────────────────── -->
+  <section class="contact" id="contact">
+    <div class="contact-watermark" aria-hidden="true">HELLO</div>
+
+    <div class="container">
+      <span class="section-label">// 007 — Contact</span>
+
+      <div class="contact-inner">
+        <div class="contact-left">
+          <h2 class="contact-heading reveal">Let's Build.</h2>
+          <p class="contact-sub reveal">
+            Got a project, idea, or question? Drop me a message and I'll get back to you within 24 hours.
+          </p>
+
+          <div class="contact-direct reveal">
+            <span class="contact-direct-label">— or reach me directly —</span>
+            <a href="mailto:zainrazzaq2003@gmail.com" class="contact-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              zainrazzaq2003@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/zain-razzaq-96a084228" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
             </a>
           </div>
         </div>
-      </section>
 
-      <!-- Projects Section -->
-      <section id="projects" class="projects">
-        <div class="container">
-          <h2 class="section-title">Projects I've Worked On</h2>
-          <p class="projects-intro">
-            Here are some of the projects I've contributed to, showcasing my expertise in full-stack development and AI integration.
-          </p>
-          <div class="projects-container">
-            <div class="projects-carousel" id="projectsCarousel">
-              <div class="project-card">
-              <div class="project-image">
-                <img src="assets/classly.png" alt="Classly - AI-powered smart learning platform">
-              </div>
-              <div class="project-header">
-                <h3>Classly - AI-powered smart learning platform</h3>
-                <div class="project-tags">
-                  <span class="tag">LLM Integration</span>
-                  <span class="tag">Auto-Grading</span>
-                  <span class="tag">React.js</span>
-                  <span class="tag">Node.js</span>
-                </div>
-              </div>
-              <div class="project-content">
-                <p>
-                  Developed a comprehensive classroom web platform with role-based access for teachers and students.
-                  Features AI-powered auto-grading using Google Gemini, handwritten text recognition, and LLM integration.
-                </p>
-                <div class="project-actions">
-                  <a href="https://classly.zainrazzaq.xyz" target="_blank" class="btn btn-primary project-btn">
-                    <i class="fas fa-external-link-alt" aria-label="External link icon"></i>
-                    View Website
-                  </a>
-                </div>
-              </div>
+        <div class="contact-right reveal">
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <input type="text" name="name" class="form-input" placeholder="Your name" required autocomplete="name" />
             </div>
-            <div class="project-card">
-              <div class="project-image">
-                <img src="assets/olsey.png" alt="Olsey Aesthetics - Custom E-commerce Store">
-              </div>
-              <div class="project-header">
-                <h3>Olsey Aesthetics - Custom E-commerce Store</h3>
-                <div class="project-tags">
-                  <span class="tag">Shopify</span>
-                  <span class="tag">Custom Development</span>
-                  <span class="tag">Responsive Design</span>
-                </div>
-              </div>
-              <div class="project-content">
-                <p>
-                  Developed a custom e-commerce website for Olsey Aesthetics skincare brand featuring elegant design.
-                  Built on Shopify platform with custom themes, product showcases, and integrated payment systems.
-                </p>
-                <div class="project-actions">
-                  <a href="https://olseyaesthetics.com/" target="_blank" class="btn btn-primary project-btn">
-                    <i class="fas fa-external-link-alt" aria-label="External link icon"></i>
-                    View Website
-                  </a>
-                </div>
-              </div>
+            <div class="form-group">
+              <input type="email" name="email" class="form-input" placeholder="Your email" required autocomplete="email" />
             </div>
-            <div class="project-card">
-              <div class="project-image">
-                <img src="assets/bitcoinyay.png" alt="Bitcoin Yay - A full stack crypto trading platform">
-              </div>
-              <div class="project-header">
-                <h3>Bitcoin Yay - A full stack crypto trading platform</h3>
-                <div class="project-tags">
-                  <span class="tag">Next.js</span>
-                  <span class="tag">Tailwind CSS</span>
-                  <span class="tag">Node.js</span>
-                  <span class="tag">REST APIs</span>
-                  <span class="tag">MongoDB</span>
-                </div>
-              </div>
-              <div class="project-content">
-                <p>
-                  Developed a comprehensive crypto trading platform for Bitcoin Yay showcasing the company's services.
-                  Built with Next.js frontend, Tailwind CSS for styling, and custom backend APIs for secure crypto transactions.
-                </p>
-                <div class="project-actions">
-                  <a href="http://bitcoinyay.com/" target="_blank" class="btn btn-primary project-btn">
-                    <i class="fas fa-external-link-alt" aria-label="External link icon"></i>
-                    View Website
-                  </a>
-                </div>
-              </div>
+            <div class="form-group">
+              <textarea name="message" class="form-textarea" placeholder="Tell me about your project…" required rows="5"></textarea>
             </div>
-            
-            </div>
-            
-            <!-- Carousel Navigation -->
-            <div class="carousel-navigation">
-              <button class="carousel-btn prev-btn" id="prevProject">
-                <i class="fas fa-chevron-left" aria-label="Previous projects"></i>
-              </button>
-              <div class="carousel-indicators" id="projectIndicators">
-                <span class="indicator active" data-slide="0"></span>
-                <span class="indicator" data-slide="1"></span>
-                <span class="indicator" data-slide="2"></span>
-              </div>
-              <button class="carousel-btn next-btn" id="nextProject">
-                <i class="fas fa-chevron-right" aria-label="Next projects"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- <section id="testimonials" class="testimonials">
-        <div class="container">
-          <h2 class="section-title">What Clients Say</h2>
-          <p class="testimonials-intro">
-            Don't just take my word for it. Here's what clients have to say about working with me on their AI-powered projects.
-          </p>
-          <div class="testimonials-container">
-            <div class="testimonials-carousel" id="testimonialsCarousel">
-              <div class="testimonial-card">
-                <div class="testimonial-content">
-                  <div class="testimonial-quote">
-                    <i class="fas fa-quote-left" aria-label="Quote icon"></i>
-                  </div>
-                  <p class="testimonial-text">
-                    "Zain delivered an exceptional AI-powered learning platform that exceeded our expectations. The auto-grading feature using Google Gemini has revolutionized how we handle assessments. His attention to detail and technical expertise are unmatched."
-                  </p>
-                  <div class="testimonial-author">
-                    <div class="author-avatar">
-                      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" alt="Sarah Johnson" />
-                    </div>
-                    <div class="author-info">
-                      <h4 class="author-name">Sarah Johnson</h4>
-                      <p class="author-title">Education Director</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-content">
-                  <div class="testimonial-quote">
-                    <i class="fas fa-quote-left" aria-label="Quote icon"></i>
-                  </div>
-                  <p class="testimonial-text">
-                    "Working with Zain on our crypto trading platform was a game-changer. He built a robust, scalable solution with Next.js and custom APIs that handles high-volume transactions seamlessly. His AI integration suggestions helped us stay ahead of the competition."
-                  </p>
-                  <div class="testimonial-author">
-                    <div class="author-avatar">
-                      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Michael Chen" />
-                    </div>
-                    <div class="author-info">
-                      <h4 class="author-name">Michael Chen</h4>
-                      <p class="author-title">CTO</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-content">
-                  <div class="testimonial-quote">
-                    <i class="fas fa-quote-left" aria-label="Quote icon"></i>
-                  </div>
-                  <p class="testimonial-text">
-                    "Zain transformed our skincare brand's online presence with a beautiful, custom Shopify store. The elegant design and seamless user experience have significantly increased our conversion rates. He's a true professional who delivers on time and exceeds expectations."
-                  </p>
-                  <div class="testimonial-author">
-                    <div class="author-avatar">
-                      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" alt="Emma Rodriguez" />
-                    </div>
-                    <div class="author-info">
-                      <h4 class="author-name">Emma Rodriguez</h4>
-                      <p class="author-title">Founder</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="carousel-navigation">
-              <button class="carousel-btn prev-btn" id="prevTestimonial">
-                <i class="fas fa-chevron-left" aria-label="Previous testimonials"></i>
-              </button>
-              <div class="carousel-indicators" id="testimonialIndicators">
-                <span class="indicator active" data-slide="0"></span>
-                <span class="indicator" data-slide="1"></span>
-                <span class="indicator" data-slide="2"></span>
-              </div>
-              <button class="carousel-btn next-btn" id="nextTestimonial">
-                <i class="fas fa-chevron-right" aria-label="Next testimonials"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section> -->
-
-      <!-- Contact Section -->
-      <section id="contact" class="contact">
-        <div class="container">
-          <h2 class="section-title">
-            Let's Build Something Intelligent — Starting with a Hello.
-          </h2>
-          <div class="contact-content">
-            <p class="contact-intro">
-              Drop your email below, and I'll personally reach out with AI
-              integration ideas or an AI pilot project we can explore together.
-            </p>
-            <div class="contact-form">
-              <form class="email-form" id="contactForm">
-                <div class="form-group">
-                  <input
-                    type="email"
-                    id="emailInput"
-                    placeholder="Enter your email"
-                    required
-                  />
-                  <textarea
-                    id="messageInput"
-                    placeholder="Tell me about your project or how I can help you..."
-                    rows="4"
-                  ></textarea>
-                  <button type="submit" class="btn btn-primary">
-                    Get in Touch
-                  </button>
-                </div>
-              </form>
-              <p class="form-note">
-                No spam. No long forms. Just your email and message — and a real
-                conversation.
-              </p>
-            </div>
-            <div class="contact-links">
-              <a href="mailto:zainrazzaq2003@gmail.com" class="contact-link">
-                <i class="fas fa-envelope" aria-label="Email icon"></i>
-                <span>zainrazzaq2003@gmail.com</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/zain-razzaq-96a084228/"
-                target="_blank"
-                class="contact-link"
-              >
-                <i class="fab fa-linkedin" aria-label="LinkedIn icon"></i>
-                <span>LinkedIn</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-left">
-            <h3>Zain Razzaq</h3>
-            <p>
-              Building intelligent, AI-powered websites that learn and adapt for
-              businesses & startups.
-            </p>
-          </div>
-          <div class="footer-nav">
-            <a href="#home" title="Go to homepage">Home</a>
-            <a href="#skills" title="View technical skills and expertise"
-              >Skills</a
-            >
-            <a
-              href="#projects"
-              title="Explore featured AI and web development projects"
-              >Projects</a
-            >
-            <a href="#contact" title="Get in touch for AI website development"
-              >Contact</a
-            >
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2025 Zain Razzaq. All rights reserved.</p>
+            <button type="submit" class="form-submit">
+              Send It
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+            <div class="form-message" role="alert"></div>
+          </form>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <!-- Initialize EmailJS -->
-    <script type="text/javascript">
-      (function() {
-        emailjs.init('RY0oZmNDIbZi9kgV3'); 
-      })();
-    </script>
-    
-    <script src="script.js"></script>
-  </body>
+  <!-- ─── 12. Footer ────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row footer-row-top">
+        <a href="#" class="footer-logo">Z.R</a>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Work</a>
+          <a href="#stack">Stack</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-row">
+        <span class="footer-copy">&copy; 2025 Zain Razzaq. All rights reserved.</span>
+        <span class="footer-location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Lahore, Pakistan
+        </span>
+      </div>
+    </div>
+  </footer>
+
+</body>
 </html>

@@ -1,0 +1,196 @@
+/* ─── Services ────────────────────────────────────────────────── */
+.services {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle dot-grid background */
+.services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Diagonal accent on the right */
+.services::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 45%; height: 100%;
+  background: var(--bg-primary);
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.services .container { position: relative; z-index: 1; }
+
+@media (max-width: 768px) {
+  .services::after { display: none; }
+}
+
+.services-header {
+  margin-bottom: var(--sp-16);
+}
+
+/* ── 3-column card grid ───────────────────────────────────────── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+}
+
+.service-item {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-8);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+/* Accent border glow on hover */
+.service-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--accent-dim), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.service-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(65, 95, 157, 0.15);
+}
+
+.service-item:hover::before { opacity: 1; }
+
+/* Large background number */
+.service-num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 5rem;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 0.08;
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  user-select: none;
+}
+
+.service-item:hover .service-num { opacity: 0.14; }
+
+/* Icon container */
+.service-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--accent-dim);
+  border: 1px solid rgba(65, 95, 157, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.service-item:hover .service-icon-wrap {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.service-icon-wrap svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease;
+}
+
+.service-item:hover .service-icon-wrap svg { stroke: #fff; }
+
+/* Small sequence label */
+.service-seq {
+  font-family: 'Geist Mono', monospace;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.service-body {}
+
+.service-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: var(--sp-3);
+  transition: color 0.25s ease;
+}
+
+.service-item:hover .service-title { color: var(--accent); }
+
+.service-desc {
+  font-size: var(--text-base);
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Bottom "what's included" tag list */
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--border);
+}
+
+.service-tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+}
+
+.service-item:hover .service-tag {
+  border-color: rgba(65, 95, 157, 0.3);
+  color: var(--accent);
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .service-item { padding: var(--sp-6); }
+}

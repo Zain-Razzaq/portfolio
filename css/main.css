@@ -1,0 +1,23 @@
+@import './variables.css';
+@import './reset.css';
+@import './typography.css';
+@import './layout.css';
+@import './animations.css';
+
+@import './components/preloader.css';
+@import './components/navbar.css';
+@import './components/button.css';
+@import './components/card.css';
+@import './components/form.css';
+@import './components/cursor.css';
+@import './components/marquee.css';
+
+@import './sections/hero.css';
+@import './sections/about.css';
+@import './sections/services.css';
+@import './sections/process.css';
+@import './sections/projects.css';
+@import './sections/stack.css';
+@import './sections/testimonials.css';
+@import './sections/contact.css';
+@import './sections/footer.css';

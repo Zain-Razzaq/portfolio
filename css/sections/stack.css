@@ -1,0 +1,132 @@
+/* ─── Tech Stack ──────────────────────────────────────────────── */
+.stack {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient top fade */
+.stack::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, var(--bg-primary), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stack .container { position: relative; z-index: 1; }
+
+/* Category groups */
+.stack-categories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+  margin-top: var(--sp-12);
+}
+
+.stack-category {}
+
+.stack-category-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: var(--sp-4);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stack-category-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.stack-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+/* Individual tech pill */
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  transition: all 0.2s ease;
+  cursor: default;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.tech-pill.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tech-pill:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(65, 95, 157, 0.12);
+}
+
+.tech-pill img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+/* Dark-mode icons that are black by default (Next.js, Express) */
+[data-theme="dark"] .icon-adaptive {
+  filter: invert(1) brightness(1.2);
+}
+
+/* OpenAI uses currentColor via fill — tint it with accent */
+.tech-pill img[src*="openai"] {
+  color: var(--accent);
+}
+
+/* Sizes */
+.pill-lg {
+  padding: 12px 22px;
+  font-size: var(--text-base);
+  font-weight: 500;
+}
+
+.pill-lg img { width: 20px; height: 20px; }
+
+/* Floating idle */
+@keyframes float-pill {
+  0%, 100% { transform: translateY(var(--float-start, 0px)); }
+  50%       { transform: translateY(var(--float-end, -6px)); }
+}
+
+.tech-pill.floating {
+  animation: float-pill var(--float-duration, 3s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .tech-pill { padding: 8px 14px; font-size: var(--text-xs); }
+  .tech-pill img { width: 16px; height: 16px; }
+  .pill-lg { padding: 10px 18px; font-size: var(--text-sm); }
+}

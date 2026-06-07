@@ -1,0 +1,103 @@
+/* ─── Theme: Light (default) ─────────────────────────────────── */
+[data-theme="light"] {
+  --icon-invert: 0;
+  --bg-primary:     #FFFFFF;
+  --bg-secondary:   #EFF0F4;
+  --bg-elevated:    #D3D6DB;
+  --border:         #D3D6DB;
+  --border-bright:  #415F9D;
+
+  --text-primary:   #0d0d0d;
+  --text-secondary: #233B6E;
+  --text-muted:     #6b7280;
+
+  --accent:         #415F9D;
+  --accent-deep:    #233B6E;
+  --accent-dim:     rgba(65, 95, 157, 0.10);
+  --accent-glow:    rgba(65, 95, 157, 0.25);
+
+  --success:        #1a9e6a;
+  --error:          #d93025;
+
+  --shadow-sm:  0 1px 3px rgba(35, 59, 110, 0.08);
+  --shadow-md:  0 4px 16px rgba(35, 59, 110, 0.12);
+  --shadow-lg:  0 12px 40px rgba(35, 59, 110, 0.16);
+}
+
+/* ─── Theme: Dark ────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --icon-invert: 1;
+  --bg-primary:     #080808;
+  --bg-secondary:   #0f0f0f;
+  --bg-elevated:    #161616;
+  --border:         #1a1f2e;
+  --border-bright:  #2a3350;
+
+  --text-primary:   #EFF0F4;
+  --text-secondary: #D3D6DB;
+  --text-muted:     #555f70;
+
+  --accent:         #415F9D;
+  --accent-deep:    #233B6E;
+  --accent-dim:     rgba(65, 95, 157, 0.12);
+  --accent-glow:    rgba(65, 95, 157, 0.40);
+
+  --success:        #2bdb8c;
+  --error:          #ff4d4d;
+
+  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg:  0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── Type Scale ─────────────────────────────────────────────── */
+:root {
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  2rem;
+  --text-4xl:  2.75rem;
+  --text-5xl:  4rem;
+  --text-6xl:  6rem;
+  --text-7xl:  8rem;
+
+  /* Spacing */
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+  --sp-32: 128px;
+
+  /* Layout */
+  --max-w: 1600px;
+  --gutter: 5vw;
+  --section-py: 120px;
+
+  /* Radius */
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
+}
+
+/* Color transition on theme switch */
+*, *::before, *::after {
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base);
+}
